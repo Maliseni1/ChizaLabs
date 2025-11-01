@@ -4,9 +4,9 @@ This is the official company website for Chiza Labs, a portfolio designed to sho
 
 
 
-##  Live Demo
+## 🚀 Live Demo
 
-* **URL:** [Link will be added here after Vercel deployment]
+* **URL:** https://chizalabs.vercel.app
 
 ---
 
@@ -36,17 +36,17 @@ This website is built with clean, modern, front-end technologies:
 
 ---
 
-##  How to Use
+## 💻 How to Use
 
 To run this project locally:
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/Maliseni1/CHIZALABS.git](https://github.com/Maliseni1/CHIZALABS.git)
+    git clone [https://github.com/Maliseni1/ChizaLabs.git](https://github.com/Maliseni1/ChizaLabs.git)
     ```
 2.  Navigate to the project directory:
     ```bash
-    cd CHIZALABS
+    cd ChizaLabs
     ```
 3.  Open `index.html` in your browser (or use a Live Server extension in VSCode).
 
