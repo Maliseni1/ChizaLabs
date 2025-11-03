@@ -86,6 +86,43 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
+// ======== NEW: ACTIVE NAV LINK ON SCROLL ========
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px", // Triggers when the section is in the middle of the screen
+        threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Get the id of the current section
+                const id = entry.target.getAttribute('id');
+                
+                // Remove 'active-link' from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                });
+
+                // Add 'active-link' to the matching link
+                // We use querySelector `[href*=${id}]` to find the link that contains the id
+                const activeLink = document.querySelector(`.nav-menu .nav-link[href*="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active-link');
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe each section
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+    // ======== END ACTIVE NAV LINK CODE ========
+
 
 // ======== NEW: HIDE/SHOW NAVBAR ON SCROLL ========
     const header = document.querySelector("header");
