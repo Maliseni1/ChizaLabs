@@ -1,10 +1,13 @@
+/* app/globals.css */
 @import "tailwindcss";
 
 /* Custom Global Styles */
 body {
-  /* This applies the bg-gray-50 to the entire body */
-  background-color: #f9fafb; /* Tailwind's bg-gray-50 color value */
-  color: #1f2937; /* Tailwind's text-gray-800 color value */
+  /* Apply bg-gray-50 and text-gray-800 globally by setting the CSS custom properties */
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity)); /* Tailwind's bg-gray-50 */
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity)); /* Tailwind's text-gray-800 */
 }
 
 /* Ensure the header stays on top */
