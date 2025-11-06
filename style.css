@@ -1,0 +1,427 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* I've merged your two 'body' selectors into this one.
+  It now includes the padding-top for the fixed header.
+*/
+body {
+    padding-top: 70px; /* Adjust this value to match your navbar's height */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left, menu right */
+    align-items: center;
+    background-color: #333;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none; /* Removes bullets */
+}
+
+.nav-item {
+    margin-left: 1.5rem; /* Space between links */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-link:hover {
+    color: #5ab9ea; /* A nice highlight color on hover */
+}
+
+/* Styling for the logo image */
+.logo-img {
+    height: 40px; /* Adjust as needed */
+    width: auto;
+    vertical-align: middle; /* Helps align with text if any */
+}
+
+/* You can remove or modify the .nav-logo color if it's now just for the image */
+.nav-logo {
+    /* color: white; <-- You can remove this line as the logo is now an image */
+    text-decoration: none;
+    font-size: 1.5rem; /* Still relevant if you want a fallback text */
+    font-weight: bold;
+    display: flex; /* Ensures image is treated nicely */
+    align-items: center; /* Vertically centers the logo */
+}
+
+/* Make the header fixed to the top */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps it above other content */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* This class will be added by JS to hide the header */
+header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Hero Section Styling */
+.hero {
+    background-color: #f4f4f4; /* A light background color */
+    height: 90vh; /* Takes up 90% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem; /* Adds some space on the sides for mobile */
+}
+
+.hero-content {
+    max-width: 600px; /* Stops the text from getting too wide */
+}
+
+.hero-title {
+    font-size: 3rem; /* Large, bold text */
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.hero-button {
+    background-color: #5ab9ea; /* Same blue as the nav hover */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #3a9bc9; /* A darker shade on hover */
+}
+
+/* Applications Section Styling */
+.app-section {
+    padding: 4rem 2rem; /* Adds spacing above/below and on the sides */
+    background-color: #fff; /* White background */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 3rem; /* Space below the title */
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid! */
+    gap: 2rem; /* Space between cards */
+    max-width: 1200px;
+    margin: 0 auto; /* Center the grid */
+}
+
+.app-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Ensures image corners are rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px); /* Lifts the card up slightly */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app-img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensures image covers the space */
+    background-color: #e0e0e0; /* Fallback color if image is missing */
+}
+
+.app-title {
+    font-size: 1.5rem;
+    color: #333;
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+}
+
+.app-description {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 1.5rem 1rem 1.5rem;
+    line-height: 1.5;
+}
+
+.app-link {
+    display: inline-block;
+    background-color: #5ab9ea; /* Using your brand blue */
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.app-link:hover {
+    background-color: #3a9bc9;
+}
+
+
+.disabled-link {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.disabled-link:hover {
+    background-color: #aaa; 
+}
+
+/* About Section Styling */
+.about-section {
+    padding: 4rem 2rem;
+    background-color: #f4f4f4; /* Light grey, alternating from the app section */
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #e0e0e0; /* Fallback color */
+}
+
+/* Responsive: Stack columns on smaller screens */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1; /* Puts the image on top on mobile */
+        margin-bottom: 2rem;
+    }
+}
+
+
+/* Contact Section Styling */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: #fff; /* White background */
+}
+
+.contact-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allows user to resize height */
+}
+
+/* Re-using the hero-button style for the submit button */
+.contact-form .hero-button {
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* --- THIS SECTION IS UPDATED --- */
+.social-icon {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem; /* Makes the icons larger */
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform */
+}
+
+.social-icon:hover {
+    color: #5ab9ea; /* Brand blue hover */
+    transform: translateY(-2px); /* Lifts icon slightly on hover */
+}
+/* --- END OF UPDATED SECTION --- */
+
+
+/* Scroll-in Animation Classes */
+.fade-in-on-scroll {
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px); /* Move it down slightly */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move it back to original position */
+}
+
+/* Styling for the hamburger icon */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* This is our "breakpoint" */
+/* On screens 768px or smaller, these styles will apply */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show the hamburger */
+    }
+
+    .nav-menu {
+        position: fixed; /* Stays on screen */
+        left: -100%; /* Hides it off-screen to the left */
+        top: 70px; /* Position it below the navbar (height of navbar) */
+        flex-direction: column; /* Stack links vertically */
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0; /* Add space between vertical links */
+    }
+
+    /* This class will be added by JavaScript */
+    .nav-menu.active {
+        left: 0; /* Slides the menu onto the screen */
+    }
+
+    /* This animates the hamburger into an "X" */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+/* Form Status Message Styling */
+#form-status {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.status-success {
+    color: green;
+}
+
+.status-error {
+    color: red;
+}
+
+/* Styling for the currently active nav link */
+.nav-link.active-link {
+    color: #5ab9ea; /* Your brand blue */
+    font-weight: bold;
+}
