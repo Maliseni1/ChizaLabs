@@ -1,37 +1,115 @@
 <<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chiza Labs Portfolio
+
+A modern, responsive portfolio website for Chiza Labs, built with Next.js, TypeScript, and Tailwind CSS. Showcasing innovative applications like Nyumba, PhotoGen, and Resumind AI.
+
+## Features
+
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Smooth Animations**: Powered by Framer Motion for engaging user interactions
+- **Modern UI**: Clean, professional design with Tailwind CSS
+- **Performance Optimized**: Built with Next.js for fast loading and SEO
+- **Contact Form**: Integrated Formspree for easy contact handling
+- **Scroll Animations**: Elements animate in as they come into view
+- **Sticky Navigation**: Header hides/shows based on scroll direction
+
+## Tech Stack
+
+- **Framework**: Next.js 16
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Font Awesome
+- **3D Graphics**: Three.js with React Three Fiber
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/chizalabs-portfolio.git
+   cd chizalabs-portfolio
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
+
+## Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the project for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint for code quality checks
+
+## Project Structure
+
+```
+chizalabs1/
+├── app/
+│   ├── components/
+│   │   ├── MotionLink.tsx
+│   │   ├── PageTransition.tsx
+│   │   └── ScrollAnimation.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── public/
+│   ├── c.logo.png
+│   ├── chizalabs-logo.png
+│   ├── nyumba-preview.png
+│   ├── photogen-preview.png
+│   └── Resumind-preview.png
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+├── tsconfig.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Applications Showcased
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Nyumba
+A rental listings platform for finding dream homes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### PhotoGen
+AI-powered tool for generating images from text prompts.
 
-## Learn More
+### Resumind AI
+Coming soon - An AI-powered resume builder.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is optimized for deployment on Vercel, but can be deployed to any platform supporting Next.js:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically with zero configuration
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+Chiza Labs - [Website](https://chizalabs.com) - info@chizalabs.com
+
+Project Link: [https://github.com/your-username/chizalabs-portfolio](https://github.com/your-username/chizalabs-portfolio)

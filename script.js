@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 formStatus.innerHTML = "Oops! There was a problem sending your message.";
                 formStatus.className = "status-error";
             }
-        } catch (error) {
+        } catch {
             // Show network error
             formStatus.innerHTML = "Oops! There was a network error.";
             formStatus.className = "status-error";
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0
     };
 
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Get the id of the current section

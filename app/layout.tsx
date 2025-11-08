@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Add Font Awesome CDN for icons */}
-        <script src="https://kit.fontawesome.com/cd03994896.js" crossOrigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
