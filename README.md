@@ -105,7 +105,7 @@ This project is optimized for deployment on Vercel, but can be deployed to any p
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [MIT License]
 
 ## Contact
 
