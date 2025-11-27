@@ -20,7 +20,6 @@ A modern, responsive portfolio website for Chiza Labs, built with Next.js, TypeS
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Icons**: Font Awesome
-- **3D Graphics**: Three.js with React Three Fiber
 
 ## Getting Started
 
@@ -112,4 +111,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Chiza Labs - [Website](https://chiza-labs.vercel.app) - chizalabs@gmail.com
 
-Project Link: [https://github.com/your-username/chizalabs-portfolio](https://github.com/your-username/chizalabs-portfolio)
+Project Link: [https://github.com/maliseni1/chizalabs](https://github.com/maliseni1/chizalabs)
