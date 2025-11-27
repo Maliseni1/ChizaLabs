@@ -216,7 +216,7 @@ export default function Home() {
                 <div className="flex gap-4 items-center">
                   <a
                     // Make sure you updated this link to your GitHub Release from the previous step!
-                    href="https://github.com/Maliseni1/ChizaLabs/releases/download/v1.0.0/audire.apk"
+                    href="https://github.com/Maliseni1/Audire/releases/download/v1.0.0/app-release.apk"
                     className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                   >
                     Download App
