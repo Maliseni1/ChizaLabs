@@ -177,7 +177,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="mb-4">
                 At Chiza Labs, we are driven by a passion for innovation and a commitment to excellence.
-                We specialize in creating intuitive, powerful, and scalable web applications that solve
+                We specialize in creating intuitive, powerful, and scalable web and mobile applications that solve
                 real-world problems.
               </p>
               <p className="mb-4">
