@@ -3,43 +3,35 @@
 
 import { blogPosts } from './data/posts';
 import Image from 'next/image';
-import { useState, useEffect } from 'react'; // Added useEffect
+import { useState, useEffect } from 'react';
 import MotionLink from './components/MotionLink';
 import PageTransition from './components/PageTransition';
+import ThemeToggle from './components/ThemeToggle'; // Import the toggle
 
 export default function Home() {
-  // State to manage the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // State to track the currently active section
   const [activeSection, setActiveSection] = useState('home');
 
-  // Function to toggle the menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   // ======== SCROLL SPY LOGIC ========
   useEffect(() => {
-    // 1. Select all sections that have an ID
     const sections = document.querySelectorAll('section[id]');
     
-    // 2. Create the observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // If the section is intersecting (visible)
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
       });
     }, { 
-      // Trigger when the section crosses the middle of the screen
       rootMargin: "-45% 0px -45% 0px" 
     });
 
-    // 3. Observe each section
     sections.forEach((section) => observer.observe(section));
 
-    // 4. Cleanup function
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
@@ -48,102 +40,82 @@ export default function Home() {
   // Helper to determine link styles
   const getLinkClasses = (sectionId: string) => {
     const baseClasses = "transition-colors duration-300";
-    // Check if this link matches the active section
     const isActive = activeSection === sectionId;
     
-    // Return blue/bold if active, white/hover-blue if not
-    return `${baseClasses} ${isActive ? 'text-blue-400 font-bold' : 'text-white hover:text-blue-400'}`;
+    // Updated for dark mode visibility
+    // Active: Blue
+    // Inactive: Gray-300 (readable on dark header) -> White on Hover
+    return `${baseClasses} ${isActive ? 'text-blue-400 font-bold' : 'text-gray-300 hover:text-white'}`;
   };
-  // ==================================
 
   return (
-    // Wrap the entire content with PageTransition
     <PageTransition>
-      <main className="flex min-h-screen flex-col">
+      {/* Main Container: White in Light Mode, Deep Gray in Dark Mode */}
+      <main className="flex min-h-screen flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
+        
         {/* Navigation Bar */}
-        <header className="bg-gray-800 text-white p-4 shadow-md sticky top-0 z-50">
+        <header className="bg-gray-900 dark:bg-gray-950 text-white p-4 shadow-md sticky top-0 z-50 transition-colors duration-300">
           <div className="container mx-auto flex justify-between items-center">
             <MotionLink href="#home" className="flex items-center space-x-2">
               <Image src="/chizalabs-logo.png" alt="Chiza Labs Logo" width={80} height={40} />
             </MotionLink>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-6">
-              <MotionLink href="#home" className={getLinkClasses('home')}>
-                Home
-              </MotionLink>
-              <MotionLink href="#applications" className={getLinkClasses('applications')}>
-                Applications
-              </MotionLink>
-              {/* Added Insights Link */}
-              <MotionLink href="#insights" className={getLinkClasses('insights')}>
-                Insights
-              </MotionLink>
-              <MotionLink href="#about" className={getLinkClasses('about')}>
-                About
-              </MotionLink>
-              <MotionLink href="#contact" className={getLinkClasses('contact')}>
-                Contact
-              </MotionLink>
+            <nav className="hidden md:flex space-x-6 items-center">
+              <MotionLink href="#home" className={getLinkClasses('home')}>Home</MotionLink>
+              <MotionLink href="#applications" className={getLinkClasses('applications')}>Applications</MotionLink>
+              <MotionLink href="#insights" className={getLinkClasses('insights')}>Insights</MotionLink>
+              <MotionLink href="#about" className={getLinkClasses('about')}>About</MotionLink>
+              <MotionLink href="#contact" className={getLinkClasses('contact')}>Contact</MotionLink>
+              
+              {/* Theme Toggle (Desktop) */}
+              <div className="ml-4 pl-4 border-l border-gray-700">
+                <ThemeToggle />
+              </div>
             </nav>
 
-            {/* Mobile Hamburger Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="md:hidden flex flex-col space-y-1 focus:outline-none"
-            >
-              <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-              <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-            </button>
+            {/* Mobile Controls */}
+            <div className="md:hidden flex items-center space-x-4">
+              {/* Theme Toggle (Mobile) */}
+              <ThemeToggle />
+
+              {/* Hamburger Button */}
+              <button
+                onClick={toggleMenu}
+                className="flex flex-col space-y-1 focus:outline-none"
+              >
+                <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation Menu */}
           {isMenuOpen && (
-            <nav className="md:hidden bg-gray-700 py-4 px-4">
+            <nav className="md:hidden bg-gray-800 dark:bg-gray-900 py-4 px-4 border-t border-gray-700">
               <ul className="flex flex-col space-y-4">
-                <li>
-                  <MotionLink href="#home" className={`${getLinkClasses('home')} block`} onClick={() => setIsMenuOpen(false)}>
-                    Home
-                  </MotionLink>
-                </li>
-                <li>
-                  <MotionLink href="#applications" className={`${getLinkClasses('applications')} block`} onClick={() => setIsMenuOpen(false)}>
-                    Applications
-                  </MotionLink>
-                </li>
-                 {/* Added Insights Link to Mobile */}
-                <li>
-                  <MotionLink href="#insights" className={`${getLinkClasses('insights')} block`} onClick={() => setIsMenuOpen(false)}>
-                    Insights
-                  </MotionLink>
-                </li>
-                <li>
-                  <MotionLink href="#about" className={`${getLinkClasses('about')} block`} onClick={() => setIsMenuOpen(false)}>
-                    About
-                  </MotionLink>
-                </li>
-                <li>
-                  <MotionLink href="#contact" className={`${getLinkClasses('contact')} block`} onClick={() => setIsMenuOpen(false)}>
-                    Contact
-                  </MotionLink>
-                </li>
+                <li><MotionLink href="#home" className={`${getLinkClasses('home')} block`} onClick={() => setIsMenuOpen(false)}>Home</MotionLink></li>
+                <li><MotionLink href="#applications" className={`${getLinkClasses('applications')} block`} onClick={() => setIsMenuOpen(false)}>Applications</MotionLink></li>
+                <li><MotionLink href="#insights" className={`${getLinkClasses('insights')} block`} onClick={() => setIsMenuOpen(false)}>Insights</MotionLink></li>
+                <li><MotionLink href="#about" className={`${getLinkClasses('about')} block`} onClick={() => setIsMenuOpen(false)}>About</MotionLink></li>
+                <li><MotionLink href="#contact" className={`${getLinkClasses('contact')} block`} onClick={() => setIsMenuOpen(false)}>Contact</MotionLink></li>
               </ul>
             </nav>
           )}
         </header>
 
         {/* Hero Section */}
-        <section id="home" className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
-          <div className="text-center text-white px-4 max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">Innovate. Create. Deploy.</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+        <section id="home" className="relative w-full h-screen overflow-hidden bg-slate-50 dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black flex items-center justify-center transition-colors duration-300">
+          <div className="text-center px-4 max-w-4xl z-10">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900 dark:text-white font-bold">Innovate. Create. Deploy.</h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
               Chiza Labs builds cutting-edge applications to solve real-world problems.
               Explore our latest projects.
             </p>
             <MotionLink
               href="#applications"
-              className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg"
+              className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg"
             >
               See Our Work
             </MotionLink>
@@ -151,20 +123,22 @@ export default function Home() {
         </section>
 
         {/* Applications Section */}
-        <section id="applications" className="py-16 bg-gray-50">
+        {/* Light: bg-slate-50 | Dark: bg-gray-950 */}
+        <section id="applications" className="py-16 bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl text-center mb-8 text-gray-900">Our Applications</h2>
+            <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Our Applications</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* Nyumba App Card */}
-              <div className="bg-white p-6 rounded-lg shadow-md flex flex-col">
+              {/* Cards: bg-white in light, bg-gray-800 in dark */}
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/nyumba-preview.png" 
                   alt="Nyumba App Screenshot" 
                   className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
                 />
-                <h3 className="text-xl font-bold mb-4">Nyumba</h3>
-                <p className="mb-4 text-gray-600 flex-grow">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Nyumba</h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                   The premier rental listings on the digital frontier. Find your dream home.
                 </p>
                 <div>
@@ -172,7 +146,7 @@ export default function Home() {
                     href="https://nyumba-app.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                    className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                   >
                     Visit Site
                   </a>
@@ -180,14 +154,14 @@ export default function Home() {
               </div>
 
               {/* PhotoGen App Card */}
-              <div className="bg-white p-6 rounded-lg shadow-md flex flex-col">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/photogen-preview.png" 
                   alt="PhotoGen App Screenshot" 
                   className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
                 />
-                <h3 className="text-xl font-bold mb-4">PhotoGen</h3>
-                <p className="mb-4 text-gray-600 flex-grow">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">PhotoGen</h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                   Unleash your creativity with AI. Turn your imagination into visual art in seconds.
                 </p>
                 <div>
@@ -195,7 +169,7 @@ export default function Home() {
                     href="https://photo-gen-seven.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                    className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                   >
                     Visit Site
                   </a>
@@ -203,21 +177,21 @@ export default function Home() {
               </div>
 
               {/* Audire App Card */}
-              <div className="bg-white p-6 rounded-lg shadow-md flex flex-col">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
-                  src="/audire-preview.jpg" 
+                  src="/audire-preview.png" 
                   alt="Audire App Screenshot" 
                   className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
                 />
-                <h3 className="text-xl font-bold mb-4">Audire</h3>
-                <p className="mb-4 text-gray-600 flex-grow">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Audire</h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                   Turn any file into audio instantly. An offline mobile tool for listening to documents on the go. v1.0.0
                 </p>
                 <div className="flex gap-4 items-center">
                   <a
-                    // Make sure you updated this link to your GitHub Release from the previous step!
-                    href="https://github.com/Maliseni1/Audire/releases/download/v1.0.0/app-release.apk"
-                    className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                    // Make sure you updated this link to your GitHub Release!
+                    href="https://github.com/Maliseni1/ChizaLabs/releases/download/v1.0.0/audire.apk"
+                    className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                   >
                     Download App
                   </a>
@@ -225,14 +199,14 @@ export default function Home() {
               </div>
 
               {/* Resumind AI Card */}
-              <div className="bg-white p-6 rounded-lg shadow-md flex flex-col">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700">
                 <img 
                   src="/Resumind-preview.png" 
                   alt="Resumind Preview" 
                   className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
                 />
-                <h3 className="text-xl font-bold mb-4">Resumind AI</h3>
-                <p className="mb-4 text-gray-600 flex-grow">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Resumind AI</h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                   We're always working on new and innovative solutions. Check back soon!
                 </p>
                 <div>
@@ -249,12 +223,13 @@ export default function Home() {
         </section>
 
         {/* Latest Insights (Blog) Section */}
-        <section id="insights" className="py-16 bg-white">
+        {/* Light: bg-white | Dark: bg-gray-900 */}
+        <section id="insights" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl text-center mb-8 text-gray-900">Latest Insights</h2>
+            <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Latest Insights</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {blogPosts.slice(0, 3).map((post) => (
-                <div key={post.id} className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+                <div key={post.id} className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col border border-gray-100 dark:border-gray-700">
                   {/* Image Area */}
                   <div className="h-48 bg-gray-200 w-full relative">
                      <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-80" />
@@ -263,10 +238,10 @@ export default function Home() {
                   {/* Content Area */}
                   <div className="p-6 flex flex-col flex-grow">
                     <span className="text-sm text-blue-500 font-semibold mb-2">{post.date}</span>
-                    <h3 className="text-xl font-bold mb-3 text-gray-800 leading-tight">
+                    <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white leading-tight">
                       {post.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 flex-grow text-sm">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow text-sm">
                       {post.excerpt}
                     </p>
                     
@@ -275,7 +250,7 @@ export default function Home() {
                       {post.isAvailable ? (
                         <a 
                           href={`/blog/${post.slug}`} 
-                          className="text-blue-600 font-bold hover:text-blue-800 transition-colors flex items-center"
+                          className="text-blue-600 dark:text-blue-400 font-bold hover:text-blue-800 dark:hover:text-blue-300 transition-colors flex items-center"
                         >
                           Read Article <span className="ml-2">→</span>
                         </a>
@@ -294,7 +269,7 @@ export default function Home() {
             <div className="text-center mt-10">
                <a 
                  href="/blog" 
-                 className="inline-block border-2 border-blue-500 text-blue-500 font-bold py-2 px-6 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
+                 className="inline-block border-2 border-blue-500 text-blue-500 dark:text-blue-400 font-bold py-2 px-6 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
                >
                  View All Posts
                </a>
@@ -303,17 +278,17 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16 bg-gray-50">
+        <section id="about" className="py-16 bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl text-center mb-8 text-gray-900">About Chiza Labs</h2>
+            <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">About Chiza Labs</h2>
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-              <p className="mb-4">
+              <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Our Mission</h3>
+              <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                 At Chiza Labs, we are driven by a passion for innovation and a commitment to excellence.
                 We specialize in creating intuitive, powerful, and scalable web and mobile applications that solve
                 real-world problems.
               </p>
-              <p className="mb-4">
+              <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                 From AI-powered tools to comprehensive real-estate platforms, our goal is to
                 leverage the latest technologies to build solutions that make a tangible impact.
                 Our small, dedicated team works tirelessly to turn complex ideas into simple,
@@ -324,10 +299,10 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 bg-gray-50">
+        <section id="contact" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl text-center mb-8 text-gray-900">Get In Touch</h2>
-            <p className="text-center text-gray-600 mb-8">
+            <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Get In Touch</h2>
+            <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
               Have a project in mind or just want to say hello? Send us a message!
             </p>
             <form
@@ -342,7 +317,7 @@ export default function Home() {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="email"
@@ -350,7 +325,7 @@ export default function Home() {
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <textarea
                 id="message"
@@ -358,11 +333,11 @@ export default function Home() {
                 placeholder="Your Message"
                 rows={5}
                 required
-                className="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded transition-colors duration-300"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded transition-colors duration-300"
               >
                 Send Message
               </button>
@@ -372,7 +347,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-800 text-white p-4 mt-auto">
+        <footer className="bg-gray-800 dark:bg-black text-white p-4 mt-auto">
           <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
             <p>&copy; 2025 Chiza Labs. All rights reserved.</p>
             <div className="flex space-x-4 mt-4 sm:mt-0">
