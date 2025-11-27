@@ -205,7 +205,7 @@ export default function Home() {
               {/* Audire App Card */}
               <div className="bg-white p-6 rounded-lg shadow-md flex flex-col">
                 <img 
-                  src="/audire-preview.png" 
+                  src="/audire-preview.jpg" 
                   alt="Audire App Screenshot" 
                   className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
                 />
@@ -233,7 +233,7 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-bold mb-4">Resumind AI</h3>
                 <p className="mb-4 text-gray-600 flex-grow">
-                  We&apos;re always working on new and innovative solutions. Check back soon!
+                  We're always working on new and innovative solutions. Check back soon!
                 </p>
                 <div>
                   <a
