@@ -110,6 +110,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-Chiza Labs - [Website](https://chizalabs.com) - info@chizalabs.com
+Chiza Labs - [Website](https://chiza-labs.vercel.app) - chizalabs@gmail.com
 
 Project Link: [https://github.com/your-username/chizalabs-portfolio](https://github.com/your-username/chizalabs-portfolio)
