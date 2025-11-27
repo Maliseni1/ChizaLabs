@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Chiza Labs Portfolio
 
 A modern, responsive portfolio website for Chiza Labs, built with Next.js, TypeScript, and Tailwind CSS. Showcasing innovative applications like Nyumba, PhotoGen, and Resumind AI.
@@ -83,6 +82,9 @@ A rental listings platform for finding dream homes.
 
 ### PhotoGen
 AI-powered tool for generating images from text prompts.
+
+### Audire
+An offline mobile application that turns any file to audio.
 
 ### Resumind AI
 Coming soon - An AI-powered resume builder.

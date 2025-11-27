@@ -1,13 +1,16 @@
-/* app/globals.css */
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Custom Global Styles */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
 body {
-  /* Apply bg-gray-50 and text-gray-800 globally by setting the CSS custom properties */
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity)); /* Tailwind's bg-gray-50 */
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity)); /* Tailwind's text-gray-800 */
+  color: rgb(var(--foreground-rgb));
+  background: #f9fafb; /* Light gray background */
 }
 
 /* Ensure the header stays on top */
@@ -17,7 +20,6 @@ header {
   z-index: 50;
 }
 
-/* Optional: Add a subtle scroll-behavior smooth */
 html {
   scroll-behavior: smooth;
 }
