@@ -17,8 +17,8 @@ export const appDetails = {
             label: "Download for Modern Phones",
             subLabel: "Most Samsungs, Pixels, Tecno, Infinix (arm64)",
             file: "Audire-v1.1.2-Modern.apk",
-            // This link points to the specific split APK for arm64
-            link: "https://github.com/Maliseni1/ChizaLabs/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk",
+            // UPDATED LINK: Points to 'Audire' repo
+            link: "https://github.com/Maliseni1/Audire/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk",
             highlight: true
           },
           {
@@ -26,7 +26,7 @@ export const appDetails = {
             label: "Download for Older Phones",
             subLabel: "Older devices (armeabi-v7a)",
             file: "Audire-v1.1.2-Legacy.apk",
-            link: "https://github.com/Maliseni1/ChizaLabs/releases/download/v1.1.2/Audire-v1.1.2-Legacy.apk",
+            link: "https://github.com/Maliseni1/Audire/releases/download/v1.1.2/Audire-v1.1.2-Legacy.apk",
             highlight: false
           },
           {
@@ -34,7 +34,7 @@ export const appDetails = {
             label: "Download for PC / Emulator",
             subLabel: "ChromeOS, Android Studio (x86_64)",
             file: "Audire-v1.1.2-PC.apk",
-            link: "https://github.com/Maliseni1/ChizaLabs/releases/download/v1.1.2/Audire-v1.1.2-PC.apk",
+            link: "https://github.com/Maliseni1/Audire/releases/download/v1.1.2/Audire-v1.1.2-PC.apk",
             highlight: false
           }
         ],
@@ -55,7 +55,7 @@ export const appDetails = {
             label: "Download APK (Universal)",
             subLabel: "Original large release",
             file: "audire.apk",
-            link: "https://github.com/Maliseni1/ChizaLabs/releases/download/v1.0.0/audire.apk",
+            link: "https://github.com/Maliseni1/Audire/releases/download/v1.0.0/app-release.apk",
             highlight: false
           }
         ],

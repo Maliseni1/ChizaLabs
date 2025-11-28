@@ -43,8 +43,6 @@ export default function Home() {
     const isActive = activeSection === sectionId;
     
     // Updated for dark mode visibility
-    // Active: Blue
-    // Inactive: Gray-300 (readable on dark header) -> White on Hover
     return `${baseClasses} ${isActive ? 'text-blue-400 font-bold' : 'text-gray-300 hover:text-white'}`;
   };
 
@@ -106,7 +104,6 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        {/* Lighter background (slate-50) for light mode */}
         <section id="home" className="relative w-full h-screen overflow-hidden bg-slate-50 dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black flex items-center justify-center transition-colors duration-300">
           <div className="text-center px-4 max-w-4xl z-10">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900 dark:text-white font-bold">Innovate. Create. Deploy.</h1>
@@ -175,7 +172,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Audire App Card - UPDATED TO v1.1.2 */}
+              {/* Audire App Card - UPDATED TO 'Audire' REPO LINK */}
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/audire-preview.png" 
@@ -187,9 +184,9 @@ export default function Home() {
                   Turn any file into audio instantly. An offline mobile tool for listening to documents on the go. v1.1.2
                 </p>
                 <div className="flex gap-3">
-                  {/* Direct Download Link - Points to v1.1.2 Modern APK */}
+                  {/* Direct Download Link - Points to 'Audire' repo */}
                   <a
-                    href="https://github.com/Maliseni1/ChizaLabs/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk"
+                    href="https://github.com/Maliseni1/Audire/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk"
                     className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                   >
                     Download
@@ -204,7 +201,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CutCam - UPDATED WITH LINK TO HUB */}
+              {/* CutCam */}
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/cutcam-preview.png" 
