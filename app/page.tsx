@@ -106,6 +106,7 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
+        {/* Lighter background (slate-50) for light mode */}
         <section id="home" className="relative w-full h-screen overflow-hidden bg-slate-50 dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black flex items-center justify-center transition-colors duration-300">
           <div className="text-center px-4 max-w-4xl z-10">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900 dark:text-white font-bold">Innovate. Create. Deploy.</h1>
@@ -123,14 +124,12 @@ export default function Home() {
         </section>
 
         {/* Applications Section */}
-        {/* Light: bg-slate-50 | Dark: bg-gray-950 */}
         <section id="applications" className="py-16 bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Our Applications</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* Nyumba App Card */}
-              {/* Cards: bg-white in light, bg-gray-800 in dark */}
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/nyumba-preview.png" 
@@ -189,12 +188,31 @@ export default function Home() {
                 </p>
                 <div className="flex gap-4 items-center">
                   <a
-                    // Make sure you updated this link to your GitHub Release!
+                    // Link to GitHub Release
                     href="https://github.com/Maliseni1/ChizaLabs/releases/download/v1.0.0/audire.apk"
                     className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                   >
                     Download App
                   </a>
+                </div>
+              </div>
+
+              {/* CutCam (New) */}
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                {/* Ensure cutcam-preview.png is in your public folder */}
+                <img 
+                  src="/cutcam-preview.png" 
+                  alt="CutCam Preview" 
+                  className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
+                />
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">CutCam</h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
+                  AI-driven assistant for DIY haircuts. Real-time head detection and step-by-step guard recommendations.
+                </p>
+                <div>
+                  <span className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded">
+                    Coming Soon
+                  </span>
                 </div>
               </div>
 
@@ -207,15 +225,12 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Resumind AI</h3>
                 <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                  We're always working on new and innovative solutions. Check back soon!
+                  We&apos;re always working on new and innovative solutions. Check back soon!
                 </p>
                 <div>
-                  <a
-                    href="#"
-                    className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded transition-colors duration-300"
-                  >
+                  <span className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded">
                     Coming Soon
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -223,19 +238,15 @@ export default function Home() {
         </section>
 
         {/* Latest Insights (Blog) Section */}
-        {/* Light: bg-white | Dark: bg-gray-900 */}
         <section id="insights" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Latest Insights</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {blogPosts.slice(0, 3).map((post) => (
                 <div key={post.id} className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col border border-gray-100 dark:border-gray-700">
-                  {/* Image Area */}
                   <div className="h-48 bg-gray-200 w-full relative">
                      <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-80" />
                   </div>
-                  
-                  {/* Content Area */}
                   <div className="p-6 flex flex-col flex-grow">
                     <span className="text-sm text-blue-500 font-semibold mb-2">{post.date}</span>
                     <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white leading-tight">
@@ -244,8 +255,6 @@ export default function Home() {
                     <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow text-sm">
                       {post.excerpt}
                     </p>
-                    
-                    {/* Read More Button */}
                     <div className="mt-auto">
                       {post.isAvailable ? (
                         <a 
@@ -265,7 +274,6 @@ export default function Home() {
               ))}
             </div>
             
-            {/* View All Button */}
             <div className="text-center mt-10">
                <a 
                  href="/blog" 
