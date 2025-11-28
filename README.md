@@ -25,9 +25,10 @@ Unleash your creativity with AI. Turn text into visual art instantly.
 * **Tech:** AI Image Generation
 
 ### 🎧 3. Audire
-**New Release (v1.0.0)**
+**Latest Release: v1.1.2**
 An offline mobile tool that turns any document (PDF, Docx, Images) into audio.
-* **Status:** Available for Download (APK)
+* **Status:** Live (Split APKs available)
+* **Optimization:** 60% size reduction via Smart ABI Splits (Modern vs Legacy).
 * **Tech:** Mobile, Text-to-Speech, OCR
 
 ### ✂️ 4. CutCam
@@ -46,10 +47,11 @@ AI-powered resume builder and rating system.
 ## ✨ Website Features
 
 * **⚡ Next.js 16 (App Router):** Built for speed and SEO.
-* **🎨 Tailwind CSS & Dark Mode:** Fully responsive design with a high-contrast Light Mode and a sleek Dark Mode 🌓.
+* **📦 App Release Hub:** Dynamic pages (`/apps/audire`) to manage changelogs and version history.
+* **🌓 Dark Mode:** Fully responsive design with high-contrast Light Mode and AMOLED Dark Mode.
+* **📲 Smart Downloads:** Directs users to the correct APK version (Modern arm64 vs Legacy) for their device.
 * **📈 Vercel Analytics:** Real-time privacy-friendly visitor tracking.
 * **✍️ Insights (Blog):** A dynamic blog section to share tech updates.
-* **📥 Direct Downloads:** Integrated GitHub Releases for hosting mobile app binaries (APK).
 * **✨ Scroll Spy Navigation:** Navigation links automatically highlight based on the current scroll position.
 * **📧 Contact Form:** Integrated with Formspree for serverless email handling.
 
