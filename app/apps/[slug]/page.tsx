@@ -1,7 +1,7 @@
 'use client';
 
 import { appDetails } from '../../data/releases';
-import { notFound, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import MotionLink from '../../components/MotionLink';
 import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
@@ -10,11 +10,9 @@ export default function AppReleasePage() {
   const params = useParams();
   const slug = params.slug as string;
 
-  // Find the app data based on the URL (e.g., /apps/audire)
   // @ts-ignore
   const app = appDetails[slug];
 
-  // If app doesn't exist, show 404 (or you can redirect)
   if (!app) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
@@ -28,9 +26,10 @@ export default function AppReleasePage() {
 
   return (
     <PageTransition>
-      <main className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
+      {/* Added flex-col to main container for sticky footer */}
+      <main className="flex min-h-screen flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
         
-        {/* Simple Header */}
+        {/* Header */}
         <header className="bg-gray-900 dark:bg-gray-950 text-white p-4 shadow-md sticky top-0 z-50">
           <div className="container mx-auto flex justify-between items-center">
              <div className="flex items-center gap-4">
@@ -44,7 +43,8 @@ export default function AppReleasePage() {
           </div>
         </header>
 
-        <div className="container mx-auto px-4 py-12 max-w-4xl">
+        {/* Main Content - Added flex-grow */}
+        <div className="container mx-auto px-4 py-12 max-w-4xl flex-grow">
           
           {/* App Hero */}
           <div className="flex flex-col md:flex-row gap-8 items-center mb-16">
@@ -69,7 +69,7 @@ export default function AppReleasePage() {
                   key={index} 
                   className={`relative border rounded-xl p-6 transition-colors duration-300 
                     ${release.isLatest 
-                      ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 shadow-md' 
+                      ? 'bg-blue-50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-800 shadow-md' 
                       : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800'
                     }`}
                 >
@@ -80,34 +80,56 @@ export default function AppReleasePage() {
                     </span>
                   )}
 
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                        Version {release.version}
-                      </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{release.date}</p>
-                    </div>
-                    
-                    <a 
-                      href={release.downloadLink}
-                      className={`inline-flex items-center justify-center px-6 py-2 rounded-lg font-bold transition-colors
-                        ${release.isLatest
-                          ? 'bg-blue-500 hover:bg-blue-600 text-white'
-                          : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-white'
-                        }`}
-                    >
-                      <i className="fas fa-download mr-2"></i> Download APK
-                    </a>
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                      Version {release.version}
+                      <span className="text-sm font-normal text-gray-500 dark:text-gray-400">({release.date})</span>
+                    </h3>
                   </div>
 
-                  <div className="mt-4">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">What's New:</h4>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                      {/* @ts-ignore */}
-                      {release.notes.map((note, i) => (
-                        <li key={i}>{note}</li>
-                      ))}
-                    </ul>
+                  <div className="flex flex-col lg:flex-row gap-8">
+                    
+                    {/* DOWNLOAD OPTIONS AREA */}
+                    <div className="flex-1 space-y-3">
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm uppercase tracking-wider">Select Your Device:</h4>
+                        
+                        {/* @ts-ignore */}
+                        {release.downloads.map((dl, i) => (
+                          <a 
+                            key={i}
+                            href={dl.link}
+                            className={`flex items-center justify-between px-4 py-3 rounded-lg border transition-all duration-200 group
+                              ${dl.highlight 
+                                ? 'bg-blue-600 hover:bg-blue-700 border-blue-600 text-white shadow-md transform hover:-translate-y-0.5' 
+                                : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200'
+                              }`}
+                          >
+                            <div className="flex flex-col">
+                              <span className={`font-bold text-sm md:text-base ${dl.highlight ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
+                                {dl.label}
+                              </span>
+                              {dl.subLabel && (
+                                <span className={`text-xs ${dl.highlight ? 'text-blue-100' : 'text-gray-500 dark:text-gray-400'}`}>
+                                  {dl.subLabel}
+                                </span>
+                              )}
+                            </div>
+                            <i className={`fas fa-download ${dl.highlight ? 'text-white' : 'text-gray-400'}`}></i>
+                          </a>
+                        ))}
+                    </div>
+
+                    {/* RELEASE NOTES AREA */}
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm uppercase tracking-wider">Release Notes:</h4>
+                      <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/20 p-4 rounded-lg text-sm md:text-base">
+                        {/* @ts-ignore */}
+                        {release.notes.map((note, i) => (
+                          <li key={i}>{note}</li>
+                        ))}
+                      </ul>
+                    </div>
+
                   </div>
                 </div>
               ))}
@@ -122,6 +144,42 @@ export default function AppReleasePage() {
           )}
 
         </div>
+
+        {/* Footer */}
+        <footer className="bg-gray-800 dark:bg-black text-white p-4 mt-auto">
+          <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+            <p>&copy; 2025 Chiza Labs. All rights reserved.</p>
+            <div className="flex space-x-4 mt-4 sm:mt-0">
+              <a
+                href="https://github.com/Maliseni1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 transition-colors duration-300"
+                aria-label="GitHub"
+              >
+                <i className="fab fa-github fa-lg"></i>
+              </a>
+              <a
+                href="https://x.com/Malisenichavula"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 transition-colors duration-300"
+                aria-label="X"
+              >
+                <i className="fab fa-x-twitter fa-lg"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/maliseni-chavula-7100b323b"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <i className="fab fa-linkedin fa-lg"></i>
+              </a>
+            </div>
+          </div>
+        </footer>
       </main>
     </PageTransition>
   );

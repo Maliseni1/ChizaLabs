@@ -43,6 +43,8 @@ export default function Home() {
     const isActive = activeSection === sectionId;
     
     // Updated for dark mode visibility
+    // Active: Blue
+    // Inactive: Gray-300 (readable on dark header) -> White on Hover
     return `${baseClasses} ${isActive ? 'text-blue-400 font-bold' : 'text-gray-300 hover:text-white'}`;
   };
 
@@ -173,7 +175,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Audire App Card - UPDATED WITH LINKS TO HUB */}
+              {/* Audire App Card - UPDATED TO v1.1.2 */}
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/audire-preview.png" 
@@ -182,12 +184,12 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Audire</h3>
                 <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                  Turn any file into audio instantly. An offline mobile tool for listening to documents on the go.
+                  Turn any file into audio instantly. An offline mobile tool for listening to documents on the go. v1.1.2
                 </p>
                 <div className="flex gap-3">
-                  {/* Direct Download */}
+                  {/* Direct Download Link - Points to v1.1.2 Modern APK */}
                   <a
-                    href="https://github.com/Maliseni1/ChizaLabs/releases/download/v1.0.0/audire.apk"
+                    href="https://github.com/Maliseni1/ChizaLabs/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk"
                     className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                   >
                     Download
