@@ -1,116 +1,93 @@
-# Chiza Labs Portfolio
+# Chiza Labs - Official Website
 
-A modern, responsive portfolio website for Chiza Labs, built with Next.js, TypeScript, and Tailwind CSS. Showcasing innovative applications like Nyumba, PhotoGen, and Resumind AI.
+The official portfolio and company website for **Chiza Labs**, built with modern web technologies to showcase our suite of AI-driven and utility applications.
 
-## Features
+![Chiza Labs Preview](public/chizalabs-logo.png)
 
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Smooth Animations**: Powered by Framer Motion for engaging user interactions
-- **Modern UI**: Clean, professional design with Tailwind CSS
-- **Performance Optimized**: Built with Next.js for fast loading and SEO
-- **Contact Form**: Integrated Formspree for easy contact handling
-- **Scroll Animations**: Elements animate in as they come into view
-- **Sticky Navigation**: Header hides/shows based on scroll direction
+## 🚀 Live Demo
 
-## Tech Stack
+**Visit the site:** [https://chizalabs.vercel.app](https://chizalabs.vercel.app)
 
-- **Framework**: Next.js 16
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Font Awesome
+---
 
-## Getting Started
+## 📱 Applications Showcase
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/chizalabs-portfolio.git
-   cd chizalabs-portfolio
-   ```
+We build tools that solve real-world problems.
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### 🏠 1. Nyumba
+The premier rental listings platform for the digital frontier.
+* **Status:** Live
+* **Tech:** React, Web
 
-3. **Run the development server**
-   ```bash
-   npm run dev
-   ```
+### 🎨 2. PhotoGen
+Unleash your creativity with AI. Turn text into visual art instantly.
+* **Status:** Live
+* **Tech:** AI Image Generation
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
+### 🎧 3. Audire
+**New Release (v1.0.0)**
+An offline mobile tool that turns any document (PDF, Docx, Images) into audio.
+* **Status:** Available for Download (APK)
+* **Tech:** Mobile, Text-to-Speech, OCR
 
-## Available Scripts
+### ✂️ 4. CutCam
+**Coming Soon**
+An AI-driven assistant for DIY haircuts. Uses real-time computer vision to detect head position and recommend guard sizes.
+* **Status:** In Development
+* **Tech:** Flutter, AI/Computer Vision
 
-- `npm run dev` - Start the development server
-- `npm run build` - Build the project for production
-- `npm run start` - Start the production server
-- `npm run lint` - Run ESLint for code quality checks
+### 📄 5. Resumind AI
+**Coming Soon**
+AI-powered resume builder and rating system.
+* **Status:** In Development
 
-## Project Structure
+---
 
-```
-chizalabs1/
-├── app/
-│   ├── components/
-│   │   ├── MotionLink.tsx
-│   │   ├── PageTransition.tsx
-│   │   └── ScrollAnimation.tsx
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── public/
-│   ├── c.logo.png
-│   ├── chizalabs-logo.png
-│   ├── nyumba-preview.png
-│   ├── photogen-preview.png
-│   └── Resumind-preview.png
-├── eslint.config.mjs
-├── next.config.ts
-├── package.json
-├── postcss.config.mjs
-├── tailwind.config.ts
-├── tsconfig.json
-└── README.md
-```
+## ✨ Website Features
 
-## Applications Showcased
+* **⚡ Next.js 16 (App Router):** Built for speed and SEO.
+* **🎨 Tailwind CSS & Dark Mode:** Fully responsive design with a high-contrast Light Mode and a sleek Dark Mode 🌓.
+* **📈 Vercel Analytics:** Real-time privacy-friendly visitor tracking.
+* **✍️ Insights (Blog):** A dynamic blog section to share tech updates.
+* **📥 Direct Downloads:** Integrated GitHub Releases for hosting mobile app binaries (APK).
+* **✨ Scroll Spy Navigation:** Navigation links automatically highlight based on the current scroll position.
+* **📧 Contact Form:** Integrated with Formspree for serverless email handling.
 
-### Nyumba
-A rental listings platform for finding dream homes.
+---
 
-### PhotoGen
-AI-powered tool for generating images from text prompts.
+## 🛠️ Tech Stack
 
-### Audire
-An offline mobile application that turns any file to audio.
+* **Framework:** [Next.js](https://nextjs.org/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) + `next-themes`
+* **Animations:** Framer Motion
+* **Hosting:** [Vercel](https://vercel.com/)
 
-### Resumind AI
-Coming soon - An AI-powered resume builder.
+---
 
-## Deployment
+## 💻 Running Locally
 
-This project is optimized for deployment on Vercel, but can be deployed to any platform supporting Next.js:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/Maliseni1/ChizaLabs.git](https://github.com/Maliseni1/ChizaLabs.git)
+    cd ChizaLabs
+    ```
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically with zero configuration
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Contributing
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+4.  **Open locally:**
+    Visit [http://localhost:3000](http://localhost:3000)
 
-## License
+---
 
-This project is open source and available under the [MIT License]
+## ©️ License
 
-## Contact
-
-Chiza Labs - [Website](https://chiza-labs.vercel.app) - chizalabs@gmail.com
-
-Project Link: [https://github.com/maliseni1/chizalabs](https://github.com/maliseni1/chizalabs)
+&copy; 2025 Chiza Labs. All rights reserved.
