@@ -17,7 +17,6 @@ export const appDetails = {
             label: "Download for Modern Phones",
             subLabel: "Most Samsungs, Pixels, Tecno, Infinix (arm64)",
             file: "Audire-v1.1.2-Modern.apk",
-            // UPDATED LINK: Points to 'Audire' repo
             link: "https://github.com/Maliseni1/Audire/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk",
             highlight: true
           },
@@ -54,7 +53,7 @@ export const appDetails = {
             type: "Universal",
             label: "Download APK (Universal)",
             subLabel: "Original large release",
-            file: "audire.apk",
+            file: "app-release.apk",
             link: "https://github.com/Maliseni1/Audire/releases/download/v1.0.0/app-release.apk",
             highlight: false
           }
@@ -72,6 +71,29 @@ export const appDetails = {
     tagline: "AI-Powered DIY Haircuts.",
     description: "Your personal AI barber assistant. Uses computer vision to guide your hand for the perfect self-haircut.",
     icon: "/cutcam-preview.png", 
-    releases: [] // Empty array means "Coming Soon"
+    releases: [
+      {
+        version: "v1.0.0",
+        date: "November 29, 2025",
+        isLatest: true,
+        downloads: [
+          {
+            type: "Universal",
+            label: "Download APK",
+            subLabel: "Initial Release",
+            file: "app-release.apk", 
+            // CHECK THIS LINK: Assumes repo is named 'CutCam'
+            link: "https://github.com/Maliseni1/CutCam/releases/download/v1.0.0/app-release.apk",
+            highlight: true
+          }
+        ],
+        notes: [
+          "Initial Release v1.0.0",
+          "Real-time head detection using Computer Vision",
+          "Step-by-step clip recommendations",
+          "Offline functionality"
+        ]
+      }
+    ]
   }
 };
