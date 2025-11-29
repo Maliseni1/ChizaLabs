@@ -202,7 +202,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CutCam - NOW LIVE v1.0.0 */}
+              {/* CutCam */}
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                 <img 
                   src="/cutcam-preview.png" 
@@ -211,23 +211,40 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">CutCam</h3>
                 <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                  AI-driven assistant for DIY haircuts. Real-time head detection and step-by-step clip recommendations. v1.0.0
+                  AI-driven assistant for DIY haircuts. Real-time head detection and step-by-step guard recommendations. v1.0.0
                 </p>
                 <div className="flex gap-3">
-                  {/* Direct Download Link */}
                   <a 
                     href="https://github.com/Maliseni1/CutCam/releases/download/v1.0.0/app-release.apk" 
                     className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                   >
                     Download
                   </a>
-                  {/* Link to Hub Page */}
                   <a
                     href="/apps/cutcam"
                     className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                   >
                     Versions
                   </a>
+                </div>
+              </div>
+
+              {/* Nyumba Mobile (NEW) */}
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                {/* Reusing nyumba-preview.png for now */}
+                <img 
+                  src="/nyumba-preview.png" 
+                  alt="Nyumba Mobile App" 
+                  className="w-full h-48 object-cover mb-4 rounded bg-gray-200" 
+                />
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Nyumba Mobile</h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
+                  The Nyumba experience, optimized for your phone. Browse listings, chat with landlords, and get notifications on the go.
+                </p>
+                <div>
+                  <span className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded">
+                    Coming Soon
+                  </span>
                 </div>
               </div>
 
