@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   keywords: ['Chiza Labs', 'Software Development', 'Zambia', 'AI', 'Offline Apps', 'Audire', 'Nyumba', 'CutCam', 'Flutter', 'Next.js'],
   authors: [{ name: 'Maliseni' }],
   creator: 'Chiza Labs',
+  // ADD THIS NEW SECTION BELOW:
+  verification: {
+    google: 'RK9QhQoZxKAGN4ayVJNWB5OMl5-o1H0FGEZn_oYg9f4', // Google Search Console verification code
+  },
   openGraph: {
     title: 'Chiza Labs - Innovate. Create. Deploy.',
     description: 'Building the next generation of AI and utility apps like Audire and Nyumba.',
