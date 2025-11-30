@@ -13,6 +13,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      // animation section:
+      animation: {
+        'bounce-slow': 'bounce 3s infinite',
+      },
     },
   },
   plugins: [],
