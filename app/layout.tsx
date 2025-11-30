@@ -10,8 +10,36 @@ import Preloader from './components/Preloader'; // 2. Import Preloader
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chiza Labs",
-  description: "Innovate. Create. Deploy. Chiza Labs builds cutting-edge applications.",
+  metadataBase: new URL('https://chizalabs.vercel.app'), // 1. Set your base URL
+  title: {
+    default: 'Chiza Labs | Innovate. Create. Deploy.',
+    template: '%s | Chiza Labs' // Allows child pages to be "Audire | Chiza Labs"
+  },
+  description: "Chiza Labs builds cutting-edge offline-first mobile applications and AI tools to solve real-world problems in Africa and beyond.",
+  keywords: ['Chiza Labs', 'Software Development', 'Zambia', 'AI', 'Offline Apps', 'Audire', 'Nyumba', 'CutCam', 'Flutter', 'Next.js'],
+  authors: [{ name: 'Maliseni' }],
+  creator: 'Chiza Labs',
+  openGraph: {
+    title: 'Chiza Labs - Innovate. Create. Deploy.',
+    description: 'Building the next generation of AI and utility apps like Audire and Nyumba.',
+    url: 'https://chizalabs.vercel.app',
+    siteName: 'Chiza Labs',
+    images: [
+      {
+        url: '/chizalabs-logo.png', // This image will show on WhatsApp/Twitter share
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chiza Labs',
+    description: 'Innovate. Create. Deploy.',
+    images: ['/chizalabs-logo.png'],
+  },
   icons: {
     icon: '/c.logo.png',
   },

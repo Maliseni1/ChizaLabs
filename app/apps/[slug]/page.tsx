@@ -6,6 +6,30 @@ import MotionLink from '../../components/MotionLink';
 import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
 
+import { Metadata } from 'next'; // Import Metadata
+
+// This function generates the title dynamically
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  // @ts-ignore
+  const app = appDetails[params.slug];
+
+  if (!app) {
+    return {
+      title: 'App Not Found',
+    };
+  }
+
+  return {
+    title: app.name,
+    description: app.description,
+    openGraph: {
+      title: `${app.name} - Download & Release History`,
+      description: app.tagline,
+      images: [app.icon], // Shows the specific App Icon when sharing this page
+    },
+  };
+}
+
 export default function AppReleasePage() {
   const params = useParams();
   const slug = params.slug as string;
