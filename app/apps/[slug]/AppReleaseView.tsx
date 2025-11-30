@@ -179,5 +179,5 @@ export default function AppReleaseView({ slug }: { slug: string }) {
         </footer>
       </main>
     </PageTransition>
-  );
+  ); 
 }

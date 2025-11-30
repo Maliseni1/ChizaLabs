@@ -5,7 +5,7 @@ import AppReleaseView from './AppReleaseView';
 // 1. Generate SEO Metadata (Server Side)
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  // @ts-ignore
+  // @ts-ignore 
   const app = appDetails[slug];
 
   if (!app) {
