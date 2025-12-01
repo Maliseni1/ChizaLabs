@@ -161,7 +161,7 @@ export default function Home() {
                 </div>
               </ScrollAnimation>
 
-              {/* Audire App Card - v1.1.2 */}
+              {/* Audire App Card */}
               <ScrollAnimation delay={0.3}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/audire-preview.png" alt="Audire App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -180,7 +180,7 @@ export default function Home() {
                 </div>
               </ScrollAnimation>
 
-              {/* CutCam - v1.0.0 */}
+              {/* CutCam */}
               <ScrollAnimation delay={0.1}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/cutcam-preview.png" alt="CutCam Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -199,7 +199,7 @@ export default function Home() {
                 </div>
               </ScrollAnimation>
 
-              {/* Nyumba Mobile (NEW) */}
+              {/* Nyumba Mobile */}
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/nyumba-preview.png" alt="Nyumba Mobile App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -215,8 +215,24 @@ export default function Home() {
                 </div>
               </ScrollAnimation>
 
-              {/* Resumind AI Card */}
+              {/* Calon (NEW) */}
               <ScrollAnimation delay={0.3}>
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
+                  <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
+                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid, and find nearby health facilities.
+                  </p>
+                  <div>
+                    <span className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded">
+                      Coming Soon
+                    </span>
+                  </div>
+                </div>
+              </ScrollAnimation>
+
+              {/* Resumind AI Card */}
+              <ScrollAnimation delay={0.4}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 h-full">
                   <img src="/Resumind-preview.png" alt="Resumind Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Resumind AI</h3>
