@@ -8,6 +8,7 @@ import MotionLink from './components/MotionLink';
 import PageTransition from './components/PageTransition';
 import ThemeToggle from './components/ThemeToggle';
 import ScrollAnimation from './components/ScrollAnimation'; // Animated Scroll Wrapper
+import Newsletter from './components/Newsletter';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -397,6 +398,11 @@ export default function Home() {
             <div id="form-status" className="mt-4 text-center"></div>
           </div>
         </section>
+
+        {/* Newsletter Section (NEW) */}
+        <ScrollAnimation>
+          <Newsletter />
+        </ScrollAnimation>
 
         {/* Footer */}
         <footer className="bg-gray-800 dark:bg-black text-white p-4 mt-auto">
