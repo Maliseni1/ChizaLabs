@@ -1,29 +1,46 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/react";
-import NextTopLoader from 'nextjs-toploader'; // 1. Import TopLoader
-import Preloader from './components/Preloader'; // 2. Import Preloader
+import NextTopLoader from 'nextjs-toploader';
+import Preloader from './components/Preloader';
 import SupportWidget from './components/SupportWidget';
 import GlobalSearch from './components/GlobalSearch';
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Viewport settings for PWA (disables zooming for app-like feel)
+export const viewport: Viewport = {
+  themeColor: "#0f172a", // Matches your dark mode background
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1, 
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chizalabs.vercel.app'), // 1. Set your base URL
+  metadataBase: new URL('https://chizalabs.vercel.app'),
   title: {
     default: 'Chiza Labs | Innovate. Create. Deploy.',
-    template: '%s | Chiza Labs' // Allows child pages to be "Audire | Chiza Labs"
+    template: '%s | Chiza Labs'
   },
   description: "Chiza Labs builds cutting-edge offline-first mobile applications and AI tools to solve real-world problems in Africa and beyond.",
   keywords: ['Chiza Labs', 'Software Development', 'Zambia', 'AI', 'Offline Apps', 'Audire', 'Nyumba', 'CutCam', 'Flutter', 'Next.js'],
   authors: [{ name: 'Maliseni' }],
   creator: 'Chiza Labs',
-  // ADD THIS NEW SECTION BELOW:
+  
+  // --- PWA CONFIGURATION ---
+  manifest: "/manifest.json", // Link to the manifest we created
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Chiza Labs",
+  },
+  // -------------------------
+
   verification: {
-    google: 'RK9QhQoZxKAGN4ayVJNWB5OMl5-o1H0FGEZn_oYg9f4', // Google Search Console verification code
+    google: 'RK9QhQoZxKAGN4ayVJNWB5OMl5-o1H0FGEZn_oYg9f4',
   },
   openGraph: {
     title: 'Chiza Labs - Innovate. Create. Deploy.',
@@ -32,7 +49,7 @@ export const metadata: Metadata = {
     siteName: 'Chiza Labs',
     images: [
       {
-        url: '/chizalabs-logo.png', // This image will show on WhatsApp/Twitter share
+        url: '/chizalabs-logo.png',
         width: 800,
         height: 600,
       },
