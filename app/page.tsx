@@ -9,6 +9,7 @@ import PageTransition from './components/PageTransition';
 import ThemeToggle from './components/ThemeToggle';
 import ScrollAnimation from './components/ScrollAnimation';
 import Newsletter from './components/Newsletter'; // Ensure this matches your file structure
+import AppShowcase from './components/AppShowcase';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -276,6 +277,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Interactive Demo Section (NEW) */}
+        <ScrollAnimation>
+          <AppShowcase />
+        </ScrollAnimation>
 
         {/* Latest Insights (Blog) Section */}
         <section id="insights" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
