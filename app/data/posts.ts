@@ -32,8 +32,23 @@ export const blogPosts = [
     excerpt: "From DALL-E to Stable Diffusion, we break down the technology behind tools like PhotoGen and how they are changing creativity.",
     image: "/photogen-preview.png",
     slug: "guide-to-ai-image-generation",
-    isAvailable: false, // Set to true if you want to enable this link
-    content: "Content coming soon..."
+    isAvailable: true, 
+    content: `
+      <p>Artificial Intelligence has moved from analyzing data to creating art. Generative AI models are reshaping how designers, marketers, and artists approach visual content. At Chiza Labs, we harnessed this power to build <strong>PhotoGen</strong>.</p>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">How It Works</h3>
+      <p>Most modern AI image generators use a process called "Latent Diffusion." Imagine a TV screen full of static noise. The AI is trained to gradually remove that noise until a clear image emerges. By guiding this process with text prompts (e.g., "a futuristic city in Zambia"), we can control exactly what image appears out of the static.</p>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">The Impact on Creativity</h3>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Rapid Prototyping:</strong> Designers can generate ten variations of a logo concept in seconds.</li>
+        <li><strong>Accessibility:</strong> You don't need to be a master painter to visualize your ideas.</li>
+        <li><strong>Cost Efficiency:</strong> Small businesses can generate custom assets without expensive photoshoots.</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">The Future with PhotoGen</h3>
+      <p>PhotoGen is designed to make this technology accessible. We are working on optimizing our models to understand local contexts better, ensuring that African narratives are represented accurately in the AI art space.</p>
+    `
   },
   {
     id: 3,
@@ -42,7 +57,50 @@ export const blogPosts = [
     excerpt: "With apps like Audire, local-first computing is making a comeback. Learn why offline capability is a crucial feature for African markets.",
     image: "/audire-preview.png",
     slug: "future-offline-first-apps",
-    isAvailable: false,
-    content: "Content coming soon..."
+    isAvailable: true,
+    content: `
+      <p>In a world obsessed with 5G and cloud computing, there is a quiet revolution happening in software development: <strong>Local-First Software</strong>. At Chiza Labs, we believe this is the key to unlocking digital potential in Africa.</p>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">The Connectivity Challenge</h3>
+      <p>While internet penetration is growing, consistent high-speed connectivity remains a luxury in many parts of the world. An app that stops working when the signal drops is an app that fails its user. This is why we built <strong>Audire</strong> and <strong>Calon</strong> to work 100% offline.</p>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Why Offline Matters</h3>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Reliability:</strong> Your health data (Calon) or documents (Audire) should be accessible whether you are in a city center or a remote village.</li>
+        <li><strong>Speed:</strong> Local apps don't wait for server responses. They react instantly to your touch.</li>
+        <li><strong>Privacy:</strong> Data stored on your device belongs to you. It reduces the risk of cloud data breaches.</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Building for the Edge</h3>
+      <p>Creating offline apps is harder than building cloud apps. It requires sophisticated synchronization logic and efficient local databases. But the result—a resilient, fast, and empowering tool for the user—is worth the effort.</p>
+    `
+  },
+  // --- COMING SOON (2026) ---
+  {
+    id: 4,
+    title: "The Role of Computer Vision in Personal Grooming",
+    date: "January 15, 2026",
+    excerpt: "How AI is moving from our screens to our mirrors. We explore the tech stack behind CutCam and the future of AR beauty tools.",
+    image: "/cutcam-preview.png", // Reusing CutCam image
+    slug: "computer-vision-grooming",
+    isAvailable: false
+  },
+  {
+    id: 5,
+    title: "Securing Health Data on Mobile Devices",
+    date: "February 10, 2026",
+    excerpt: "Privacy is paramount when dealing with medical history. A deep dive into the encryption standards used in Calon.",
+    image: "/calon-preview.png", // Reusing Calon image
+    slug: "securing-health-data",
+    isAvailable: false
+  },
+  {
+    id: 6,
+    title: "Omnis: Redefining Cross-Platform Productivity",
+    date: "March 22, 2026",
+    excerpt: "Why we are building a universal file companion for Windows, Linux, and Mobile. The challenge of a unified ecosystem.",
+    image: "/omnis-preview.png", // Reusing Omnis image
+    slug: "omnis-cross-platform",
+    isAvailable: false
   }
 ];
