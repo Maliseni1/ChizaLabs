@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/react";
 import NextTopLoader from 'nextjs-toploader'; // 1. Import TopLoader
 import Preloader from './components/Preloader'; // 2. Import Preloader
+import SupportWidget from './components/SupportWidget';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -79,6 +80,10 @@ export default function RootLayout({
 
             {children}
             <Analytics />
+
+            {/* Live Chat Widget */}
+            <SupportWidget />
+            
         </Providers>
       </body>
     </html>
