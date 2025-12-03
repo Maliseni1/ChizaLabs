@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import NextTopLoader from 'nextjs-toploader'; // 1. Import TopLoader
 import Preloader from './components/Preloader'; // 2. Import Preloader
 import SupportWidget from './components/SupportWidget';
+import GlobalSearch from './components/GlobalSearch';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -78,12 +79,15 @@ export default function RootLayout({
               shadow="0 0 10px #3B82F6,0 0 5px #3B82F6"
             />
 
+            {/* Global Command Palette */}
+            <GlobalSearch />
+
             {children}
             <Analytics />
 
             {/* Live Chat Widget */}
             <SupportWidget />
-            
+
         </Providers>
       </body>
     </html>
