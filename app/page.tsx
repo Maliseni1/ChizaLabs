@@ -7,8 +7,8 @@ import { useState, useEffect } from 'react';
 import MotionLink from './components/MotionLink';
 import PageTransition from './components/PageTransition';
 import ThemeToggle from './components/ThemeToggle';
-import ScrollAnimation from './components/ScrollAnimation'; // Animated Scroll Wrapper
-import Newsletter from './components/Newsletter';
+import ScrollAnimation from './components/ScrollAnimation';
+import Newsletter from './components/Newsletter'; // Ensure this matches your file structure
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -200,8 +200,34 @@ export default function Home() {
                 </div>
               </ScrollAnimation>
 
-              {/* Nyumba Mobile */}
+              {/* Calon - NOW LIVE v1.0.0 */}
               <ScrollAnimation delay={0.2}>
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
+                  <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
+                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid, and find nearby health facilities.
+                  </p>
+                  <div className="flex gap-3">
+                    <a 
+                      // Link to NEW calon-releases repo
+                      href="https://github.com/Maliseni1/calon-releases/releases/download/v1.0.0/app-release.apk" 
+                      className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
+                    >
+                      Download
+                    </a>
+                    <a 
+                      href="/apps/calon" 
+                      className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
+                    >
+                      Versions
+                    </a>
+                  </div>
+                </div>
+              </ScrollAnimation>
+
+              {/* Nyumba Mobile */}
+              <ScrollAnimation delay={0.3}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/nyumba-preview.png" alt="Nyumba Mobile App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Nyumba Mobile</h3>
@@ -216,23 +242,7 @@ export default function Home() {
                 </div>
               </ScrollAnimation>
 
-              {/* Calon */}
-              <ScrollAnimation delay={0.3}>
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
-                  <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid, and find nearby health facilities.
-                  </p>
-                  <div>
-                    <span className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded">
-                      Coming Soon
-                    </span>
-                  </div>
-                </div>
-              </ScrollAnimation>
-
-              {/* Omnis (NEW) */}
+              {/* Omnis */}
               <ScrollAnimation delay={0.4}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/omnis-preview.png" alt="Omnis Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -399,7 +409,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Newsletter Section (NEW) */}
+        {/* Newsletter Section */}
         <ScrollAnimation>
           <Newsletter />
         </ScrollAnimation>

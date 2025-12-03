@@ -82,7 +82,6 @@ export const appDetails = {
             label: "Download APK",
             subLabel: "Initial Release",
             file: "app-release.apk", 
-            // CHECK THIS LINK: Assumes repo is named 'CutCam'
             link: "https://github.com/Maliseni1/CutCam/releases/download/v1.0.0/app-release.apk",
             highlight: true
           }
@@ -90,8 +89,39 @@ export const appDetails = {
         notes: [
           "Initial Release v1.0.0",
           "Real-time head detection using Computer Vision",
-          "Step-by-step clip recommendations",
+          "Step-by-step guard recommendations",
           "Offline functionality"
+        ]
+      }
+    ]
+  },
+  calon: {
+    name: "Calon",
+    tagline: "Secure Wellness & Health Hub.",
+    description: "Your all-in-one hub for proactive wellness. Track symptoms securely, get medication reminders, access offline first aid guides, and find nearby health facilities instantly.",
+    icon: "/calon-preview.png",
+    releases: [
+      {
+        version: "v1.0.0",
+        date: "December 03, 2025",
+        isLatest: true,
+        downloads: [
+          {
+            type: "Universal",
+            label: "Download APK",
+            subLabel: "Initial Release",
+            file: "app-release.apk",
+            // Points to the NEW 'calon-releases' repository
+            link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.0.0/app-release.apk",
+            highlight: true
+          }
+        ],
+        notes: [
+          "Initial Release v1.0.0",
+          "Secure Local Health Journal (Symptoms, Vitals)",
+          "Smart Medication Reminders",
+          "Offline First Aid Database (CPR, Burns, etc.)",
+          "GPS Health Facility Locator"
         ]
       }
     ]
