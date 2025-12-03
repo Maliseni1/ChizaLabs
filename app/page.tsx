@@ -13,6 +13,7 @@ import AppShowcase from './components/AppShowcase';
 import Quiz from './components/Quiz';
 import UserBadge from './components/UserBadge';
 import SmartBanner from './components/SmartBanner';
+import HoverCard from './components/HoverCard';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -136,6 +137,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* Nyumba App Card */}
+              <HoverCard>
               <ScrollAnimation delay={0.1}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/nyumba-preview.png" alt="Nyumba App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -150,8 +152,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* PhotoGen App Card */}
+              <HoverCard>
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/photogen-preview.png" alt="PhotoGen App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -166,8 +170,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* Audire App Card */}
+              <HoverCard>
               <ScrollAnimation delay={0.3}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/audire-preview.png" alt="Audire App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -185,8 +191,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* CutCam */}
+              <HoverCard>
               <ScrollAnimation delay={0.1}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/cutcam-preview.png" alt="CutCam Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -204,8 +212,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* Calon - NOW LIVE v1.0.0 */}
+              <HoverCard>
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -230,8 +240,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* Nyumba Mobile */}
+              <HoverCard>
               <ScrollAnimation delay={0.3}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/nyumba-preview.png" alt="Nyumba Mobile App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -246,8 +258,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* Omnis */}
+              <HoverCard>
               <ScrollAnimation delay={0.4}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/omnis-preview.png" alt="Omnis Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -262,8 +276,10 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
 
               {/* Resumind AI Card */}
+              <HoverCard>
               <ScrollAnimation delay={0.5}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 h-full">
                   <img src="/Resumind-preview.png" alt="Resumind Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
@@ -278,6 +294,7 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
             </div>
           </div>
         </section>

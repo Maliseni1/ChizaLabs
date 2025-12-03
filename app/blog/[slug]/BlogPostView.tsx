@@ -7,6 +7,7 @@ import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
 import Newsletter from '../../components/Newsletter';
 import ScrollAnimation from '../../components/ScrollAnimation';
+import ScrollProgress from '../../components/ScrollProgress';
 
 export default function BlogPostView({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug);
@@ -24,6 +25,7 @@ export default function BlogPostView({ slug }: { slug: string }) {
 
   return (
     <PageTransition>
+      <ScrollProgress />
       <main className="flex min-h-screen flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
         
         {/* Header */}
