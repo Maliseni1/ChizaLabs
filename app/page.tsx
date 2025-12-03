@@ -16,6 +16,7 @@ import SmartBanner from './components/SmartBanner';
 import HoverCard from './components/HoverCard';
 import HeroVideo from './components/HeroVideo';
 import CommunityPoll from './components/CommunityPoll';
+import WebinarSection from './components/WebinarSection';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -334,6 +335,18 @@ export default function Home() {
                  </a>
                </ScrollAnimation>
             </div>
+          </div>
+        </section>
+
+        {/* Live Events / Webinars */}
+        <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+          <div className="container mx-auto px-4">
+            <ScrollAnimation>
+              <h2 className="text-3xl text-center mb-12 text-gray-900 dark:text-white font-bold">
+                Events & Community
+              </h2>
+              <WebinarSection />
+            </ScrollAnimation>
           </div>
         </section>
 
