@@ -8,12 +8,13 @@ import MotionLink from './components/MotionLink';
 import PageTransition from './components/PageTransition';
 import ThemeToggle from './components/ThemeToggle';
 import ScrollAnimation from './components/ScrollAnimation';
-import Newsletter from './components/Newsletter'; // Ensure this matches your file structure
+import Newsletter from './components/Newsletter';
 import AppShowcase from './components/AppShowcase';
 import Quiz from './components/Quiz';
 import UserBadge from './components/UserBadge';
 import SmartBanner from './components/SmartBanner';
 import HoverCard from './components/HoverCard';
+import HeroVideo from './components/HeroVideo';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,7 +72,7 @@ export default function Home() {
               <MotionLink href="#about" className={getLinkClasses('about')}>About</MotionLink>
               <MotionLink href="#contact" className={getLinkClasses('contact')}>Contact</MotionLink>
               
-              <div className="ml-4 pl-4 border-l border-gray-700">
+              <div className="ml-4 pl-4 border-l border-gray-700 flex items-center">
                 <ThemeToggle />
                 <UserBadge />
               </div>
@@ -102,30 +103,8 @@ export default function Home() {
           )}
         </header>
 
-        {/* Hero Section */}
-        <section id="home" className="relative w-full h-screen overflow-hidden bg-slate-50 dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black flex items-center justify-center transition-colors duration-300">
-          <div className="text-center px-4 max-w-4xl z-10">
-            <ScrollAnimation>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900 dark:text-white font-bold">Innovate. Create. Deploy.</h1>
-            </ScrollAnimation>
-            
-            <ScrollAnimation delay={0.2}>
-              <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-                Chiza Labs builds cutting-edge applications to solve real-world problems.
-                Explore our latest projects.
-              </p>
-            </ScrollAnimation>
-
-            <ScrollAnimation delay={0.4}>
-              <MotionLink
-                href="#applications"
-                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg"
-              >
-                See Our Work
-              </MotionLink>
-            </ScrollAnimation>
-          </div>
-        </section>
+        {/* VIDEO HERO SECTION */}
+        <HeroVideo />
 
         {/* Applications Section */}
         <section id="applications" className="py-16 bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
@@ -225,7 +204,6 @@ export default function Home() {
                   </p>
                   <div className="flex gap-3">
                     <a 
-                      // Link to NEW calon-releases repo
                       href="https://github.com/Maliseni1/calon-releases/releases/download/v1.0.0/app-release.apk" 
                       className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                     >
