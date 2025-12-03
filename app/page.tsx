@@ -15,6 +15,7 @@ import UserBadge from './components/UserBadge';
 import SmartBanner from './components/SmartBanner';
 import HoverCard from './components/HoverCard';
 import HeroVideo from './components/HeroVideo';
+import CommunityPoll from './components/CommunityPoll';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -414,22 +415,33 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gamification Section */}
+        {/* Engagement Zone: Quiz & Poll */}
         <section className="py-16 bg-gray-50 dark:bg-black transition-colors duration-300">
-          <div className="container mx-auto px-4 text-center">
+          <div className="container mx-auto px-4">
             <ScrollAnimation>
-              <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-                Test Your Tech Knowledge
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-                Think you know about offline-first apps and AI? Score 3/3 to unlock the exclusive 
-                <strong> Chiza Insider</strong> badge.
-              </p>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+                  Engage with Chiza Labs
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                  Test your knowledge to earn badges, or cast your vote to influence our next big release.
+                </p>
+              </div>
             </ScrollAnimation>
-            
-            <ScrollAnimation delay={0.2}>
-              <Quiz />
-            </ScrollAnimation>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+
+              {/* Quiz Component */}
+              <ScrollAnimation delay={0.2}>
+                <Quiz />
+              </ScrollAnimation>
+
+              {/* Poll Component */}
+              <ScrollAnimation delay={0.4}>
+                <CommunityPoll />
+              </ScrollAnimation>
+
+            </div>
           </div>
         </section>
 
