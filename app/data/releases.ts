@@ -3,6 +3,7 @@
 export const appDetails = {
   audire: {
     name: "Audire",
+    category: "Productivity", // <--- NEW FIELD
     tagline: "Turn documents into audio instantly.",
     description: "Audire is an offline-first mobile application designed to convert PDF, Docx, and Text files into speech. Perfect for students and professionals who want to listen to documents on the go.",
     icon: "/audire-preview.png",
@@ -68,6 +69,7 @@ export const appDetails = {
   },
   cutcam: {
     name: "CutCam",
+    category: "AI Tools", // <--- NEW FIELD
     tagline: "AI-Powered DIY Haircuts.",
     description: "Your personal AI barber assistant. Uses computer vision to guide your hand for the perfect self-haircut.",
     icon: "/cutcam-preview.png", 
@@ -97,6 +99,7 @@ export const appDetails = {
   },
   calon: {
     name: "Calon",
+    category: "Health", // <--- NEW FIELD
     tagline: "Secure Wellness & Health Hub.",
     description: "Your all-in-one hub for proactive wellness. Track symptoms securely, get medication reminders, access offline first aid guides, and find nearby health facilities instantly.",
     icon: "/calon-preview.png",
@@ -111,7 +114,6 @@ export const appDetails = {
             label: "Download APK",
             subLabel: "Initial Release",
             file: "app-release.apk",
-            // Points to the NEW 'calon-releases' repository
             link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.0.0/app-release.apk",
             highlight: true
           }

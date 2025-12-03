@@ -12,6 +12,7 @@ import Newsletter from './components/Newsletter'; // Ensure this matches your fi
 import AppShowcase from './components/AppShowcase';
 import Quiz from './components/Quiz';
 import UserBadge from './components/UserBadge';
+import SmartBanner from './components/SmartBanner';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -477,6 +478,10 @@ export default function Home() {
             </div>
           </div>
         </footer>
+
+        {/* AI Recommendation Engine */}
+        <SmartBanner />
+
       </main>
     </PageTransition>
   );

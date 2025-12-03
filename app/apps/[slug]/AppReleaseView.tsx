@@ -4,11 +4,21 @@ import { appDetails } from '../../data/releases';
 import MotionLink from '../../components/MotionLink';
 import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
+import { useEffect } from 'react';
 
 // This component receives the slug as a prop
 export default function AppReleaseView({ slug }: { slug: string }) {
   // @ts-ignore
   const app = appDetails[slug];
+
+  // === THIS TRACKING LOGIC ===
+  useEffect(() => {
+    if (app?.category) {
+      // Save the category to browser storage
+      localStorage.setItem('chiza-interest', app.category);
+    }
+  }, [app]);
+  // ===============================
 
   if (!app) {
     return (
