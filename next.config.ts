@@ -6,12 +6,13 @@ const config: NextConfig = {
   reactStrictMode: true,
   // Disable heavy checks during build to save memory
   typescript: {
-    ignoreBuildErrors: true, 
+    ignoreBuildErrors: true,
   },
-  // @ts-ignore - eslint is valid in Next.js config but missing in some type definitions
-  eslint: {
-    ignoreDuringBuilds: true, 
-  },
+   
+  // Ensure we are using webpack as required by the PWA plugin
+  webpack: (config) => {
+    return config;
+  }
 };
 
 const makePWA = withPWA({
