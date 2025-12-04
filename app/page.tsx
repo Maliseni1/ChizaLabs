@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 
 import { blogPosts } from './data/posts';
@@ -17,6 +16,7 @@ import HoverCard from './components/HoverCard';
 import HeroVideo from './components/HeroVideo';
 import CommunityPoll from './components/CommunityPoll';
 import WebinarSection from './components/WebinarSection';
+import SeasonSwitcher from './components/SeasonSwitcher';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,7 +74,8 @@ export default function Home() {
               <MotionLink href="#about" className={getLinkClasses('about')}>About</MotionLink>
               <MotionLink href="#contact" className={getLinkClasses('contact')}>Contact</MotionLink>
               
-              <div className="ml-4 pl-4 border-l border-gray-700 flex items-center">
+              <div className="ml-4 pl-4 border-l border-gray-700 flex items-center gap-2">
+                <SeasonSwitcher />
                 <ThemeToggle />
                 <UserBadge />
               </div>
@@ -82,6 +83,7 @@ export default function Home() {
 
             {/* Mobile Controls */}
             <div className="md:hidden flex items-center space-x-4">
+              <SeasonSwitcher />
               <ThemeToggle />
               <button onClick={toggleMenu} className="flex flex-col space-y-1 focus:outline-none">
                 <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
@@ -195,14 +197,14 @@ export default function Home() {
               </ScrollAnimation>
               </HoverCard>
 
-              {/* Calon - NOW LIVE v1.0.0 */}
+              {/* Calon */}
               <HoverCard>
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid, and find nearby health facilities.
+                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid, and find nearby health facilities. v1.0.0
                   </p>
                   <div className="flex gap-3">
                     <a 
@@ -279,7 +281,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Interactive Demo Section (NEW) */}
+        {/* The Lab Link Card */}
+              <HoverCard>
+                <ScrollAnimation delay={0.9}>
+                  <div className="bg-gradient-to-br from-gray-900 to-black p-6 rounded-lg shadow-md flex flex-col border border-gray-800 h-full relative overflow-hidden group">
+                    
+                    {/* Background pattern */}
+                    <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+                    
+                    <div className="relative z-10 flex flex-col h-full justify-center items-center text-center p-4">
+                      <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i className="fas fa-flask text-2xl text-green-400"></i>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold mb-2 text-white">The Lab</h3>
+                      <p className="mb-6 text-gray-400 text-sm">
+                        Peek behind the curtain. Explore our experimental prototypes and R&D concepts.
+                      </p>
+                      
+                      <a 
+                        href="/lab" 
+                        className="inline-block border border-green-500/50 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-full transition-all duration-300 text-sm"
+                      >
+                        Enter The Lab →
+                      </a>
+                    </div>
+                  </div>
+                </ScrollAnimation>
+              </HoverCard>
+
+        {/* Interactive Demo Section */}
         <ScrollAnimation>
           <AppShowcase />
         </ScrollAnimation>
@@ -441,9 +472,9 @@ export default function Home() {
                 </p>
               </div>
             </ScrollAnimation>
-
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
-
+              
               {/* Quiz Component */}
               <ScrollAnimation delay={0.2}>
                 <Quiz />

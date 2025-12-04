@@ -1,8 +1,8 @@
-// app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { SeasonalThemeProvider } from "./context/SeasonalThemeContext";
 import { Analytics } from "@vercel/analytics/react";
 import NextTopLoader from 'nextjs-toploader';
 import Preloader from './components/Preloader';
@@ -11,9 +11,8 @@ import GlobalSearch from './components/GlobalSearch';
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Viewport settings for PWA (disables zooming for app-like feel)
 export const viewport: Viewport = {
-  themeColor: "#0f172a", // Matches your dark mode background
+  themeColor: "#0f172a",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1, 
@@ -29,16 +28,12 @@ export const metadata: Metadata = {
   keywords: ['Chiza Labs', 'Software Development', 'Zambia', 'AI', 'Offline Apps', 'Audire', 'Nyumba', 'CutCam', 'Flutter', 'Next.js'],
   authors: [{ name: 'Maliseni' }],
   creator: 'Chiza Labs',
-  
-  // --- PWA CONFIGURATION ---
-  manifest: "/manifest.json", // Link to the manifest we created
+  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Chiza Labs",
   },
-  // -------------------------
-
   verification: {
     google: 'RK9QhQoZxKAGN4ayVJNWB5OMl5-o1H0FGEZn_oYg9f4',
   },
@@ -80,17 +75,18 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Providers>
+          <SeasonalThemeProvider>
             {/* 3. Add Preloader (Runs once on refresh) */}
             <Preloader />
             
             {/* 4. Add TopLoader (Runs on route changes) */}
             <NextTopLoader 
-              color="#3B82F6" // Your brand blue
+              color="#3B82F6" 
               initialPosition={0.08}
               crawlSpeed={200}
               height={3}
               crawl={true}
-              showSpinner={false} // Clean look without the spinner circle
+              showSpinner={false}
               easing="ease"
               speed={200}
               shadow="0 0 10px #3B82F6,0 0 5px #3B82F6"
@@ -100,11 +96,12 @@ export default function RootLayout({
             <GlobalSearch />
 
             {children}
+            
             <Analytics />
 
             {/* Live Chat Widget */}
             <SupportWidget />
-
+          </SeasonalThemeProvider>
         </Providers>
       </body>
     </html>
