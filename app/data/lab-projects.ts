@@ -1,26 +1,20 @@
 export const labProjects = [
   {
-    id: 'project-titan',
-    title: 'Project Titan',
-    status: 'Prototype',
-    description: 'An experimental blockchain-based voting system designed for small organizations. Focusing on transparency and immutable records.',
-    tech: ['Solidity', 'Ethereum', 'Next.js'],
-    image: '/chizalabs-logo.png', // Use a placeholder or specific image
-  },
-  {
-    id: 'echo-drone',
-    title: 'Echo Drone',
+    id: 'datawallet',
+    title: 'DataWallet',
     status: 'Concept',
-    description: 'A feasibility study on using low-cost drones for delivering medical supplies to rural clinics in Zambia. Currently in the simulation phase.',
-    tech: ['Python', 'ROS', 'Simulation'],
-    image: '/chizalabs-logo.png',
+    description: 'A carrier-agnostic mobile data wallet for ZedMobile, MTN, and Airtel. It solves the problem of expiring data bundles by allowing users to store, rollover, and gift unused data across multiple networks.',
+    disclaimer: 'Disclaimer: Independent R&D project. Not currently partnered with mentioned carriers. Feasibility dependent on stakeholder engagement.',
+    tech: ['Next.js 16', 'Tailwind v4', 'Mobile Payment API'],
+    image: '/chizalabs-logo.png', // Placeholder until you have a logo
   },
   {
-    id: 'agri-sense',
-    title: 'AgriSense IoT',
-    status: 'Alpha',
-    description: 'Smart soil sensors that communicate with a local hub to provide farmers with real-time moisture and nutrient data without internet access.',
-    tech: ['IoT', 'C++', 'LoRaWAN'],
+    id: 'hike',
+    title: 'Hike',
+    status: 'Prototype',
+    description: 'A ride-hailing app designed for reliability in every situation. Hike keeps working even when your internet connection is weak or unstable using offline-first technology and SMS fallback.',
+    disclaimer: 'Focus: Solving ride accessibility in areas with shaky connectivity.',
+    tech: ['Flutter', 'Offline-First', 'SMS Gateway', 'Geolocation'],
     image: '/chizalabs-logo.png',
   }
 ];
