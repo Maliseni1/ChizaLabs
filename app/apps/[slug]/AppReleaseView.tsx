@@ -1,24 +1,40 @@
 'use client';
 
 import { appDetails } from '../../data/releases';
+import { useEffect } from 'react';
 import MotionLink from '../../components/MotionLink';
 import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
-import { useEffect } from 'react';
 
-// This component receives the slug as a prop
+// This component receives the slug as a prop from the Server Component
 export default function AppReleaseView({ slug }: { slug: string }) {
   // @ts-ignore
   const app = appDetails[slug];
 
-  // === THIS TRACKING LOGIC ===
+  // === USER TRACKING LOGIC ===
   useEffect(() => {
-    if (app?.category) {
-      // Save the category to browser storage
-      localStorage.setItem('chiza-interest', app.category);
+    if (app) {
+      // 1. Save Interest Category (for AI Recommendations)
+      if (app.category) {
+        localStorage.setItem('chiza-interest', app.category);
+      }
+
+      // 2. Save to "Recent History" (for Dashboard)
+      const history = JSON.parse(localStorage.getItem('chiza-history') || '[]');
+      
+      // Create simple object to save
+      const visit = { name: app.name, icon: app.icon, slug, date: new Date().toISOString() };
+      
+      // Remove duplicates of this app so we don't list it twice
+      const filtered = history.filter((item: any) => item.slug !== slug);
+      
+      // Add to front, keep max 3 items
+      const newHistory = [visit, ...filtered].slice(0, 3);
+      
+      localStorage.setItem('chiza-history', JSON.stringify(newHistory));
     }
-  }, [app]);
-  // ===============================
+  }, [app, slug]);
+  // ===========================
 
   if (!app) {
     return (
@@ -187,7 +203,8 @@ export default function AppReleaseView({ slug }: { slug: string }) {
             </div>
           </div>
         </footer>
+
       </main>
     </PageTransition>
-  ); 
+  );
 }
