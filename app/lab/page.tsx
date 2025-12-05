@@ -1,6 +1,7 @@
 'use client';
 
 import { labProjects } from '../data/lab-projects';
+import Image from 'next/image'; // Ensure Image is imported
 import MotionLink from '../components/MotionLink';
 import PageTransition from '../components/PageTransition';
 import ThemeToggle from '../components/ThemeToggle';
@@ -102,18 +103,33 @@ export default function LabPage() {
 
                     <div className="h-full bg-gradient-to-b from-slate-50/50 to-white/80 dark:from-[#0A0A0A] dark:to-[#0A0A0A] rounded-2xl p-8 flex flex-col relative overflow-hidden border border-slate-100 dark:border-transparent">
                       
-                      {/* Status Badge */}
-                      <div className="flex justify-between items-center mb-6">
-                        <div className={`
-                          text-[10px] font-bold px-3 py-1.5 rounded-full border uppercase tracking-widest shadow-sm
-                          ${project.status === 'Concept' ? 'border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-50 dark:bg-purple-500/10' : ''}
-                          ${project.status === 'Prototype' ? 'border-amber-200 dark:border-amber-500/30 text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10' : ''}
-                          ${project.status === 'Alpha' ? 'border-red-200 dark:border-red-500/30 text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-500/10' : ''}
-                        `}>
-                          {project.status}
+                      {/* NEW: Project Logo & Status Header */}
+                      <div className="flex justify-between items-start mb-6">
+                        {/* Logo with fallback background */}
+                        <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-1 shadow-sm">
+                           {/* Using Next.js Image component for optimization */}
+                           <Image 
+                              src={project.image} 
+                              alt={project.title} 
+                              width={48} 
+                              height={48} 
+                              className="w-full h-full object-contain"
+                           />
                         </div>
-                        <div className="font-mono text-[10px] font-bold text-slate-400 dark:text-gray-600">
-                          ID: {project.id.toUpperCase()}
+
+                        {/* Status Badge */}
+                        <div className="flex flex-col items-end">
+                            <div className={`
+                              text-[10px] font-bold px-3 py-1.5 rounded-full border uppercase tracking-widest shadow-sm mb-1
+                              ${project.status === 'Concept' ? 'border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-50 dark:bg-purple-500/10' : ''}
+                              ${project.status === 'Prototype' ? 'border-amber-200 dark:border-amber-500/30 text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10' : ''}
+                              ${project.status === 'Alpha' ? 'border-red-200 dark:border-red-500/30 text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-500/10' : ''}
+                            `}>
+                              {project.status}
+                            </div>
+                            <div className="font-mono text-[10px] font-bold text-slate-400 dark:text-gray-600">
+                              ID: {project.id.toUpperCase()}
+                            </div>
                         </div>
                       </div>
 
@@ -126,7 +142,7 @@ export default function LabPage() {
                         {project.description}
                       </p>
 
-                      {/* Disclaimer - Styled like a terminal warning */}
+                      {/* Disclaimer */}
                       {project.disclaimer && (
                         <div className="mb-8 p-4 bg-amber-50 dark:bg-yellow-900/10 border-l-4 border-amber-400 dark:border-yellow-600/50 text-amber-900 dark:text-yellow-500/80 text-xs font-mono rounded-r-lg">
                           <span className="font-black mr-2">WARN:</span>
@@ -134,7 +150,7 @@ export default function LabPage() {
                         </div>
                       )}
 
-                      {/* Tech Stack - Minimal Chips */}
+                      {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-slate-200 dark:border-white/5">
                         {project.tech.map((t) => (
                           <span key={t} className="text-[11px] font-bold font-mono text-slate-600 dark:text-gray-500 bg-white dark:bg-white/5 border border-slate-200 dark:border-transparent px-3 py-1.5 rounded-md hover:text-black dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/10 transition-colors cursor-default shadow-sm dark:shadow-none">
