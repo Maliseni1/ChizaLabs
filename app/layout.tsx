@@ -8,6 +8,7 @@ import NextTopLoader from 'nextjs-toploader';
 import Preloader from './components/Preloader';
 import SupportWidget from './components/SupportWidget';
 import GlobalSearch from './components/GlobalSearch';
+import AccessibilityMenu from './components/AccessibilityMenu';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -94,6 +95,9 @@ export default function RootLayout({
 
             {/* Global Command Palette */}
             <GlobalSearch />
+
+            {/* Accessibility Menu (NEW) */}
+            <AccessibilityMenu />
 
             {children}
             

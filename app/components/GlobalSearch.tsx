@@ -110,7 +110,7 @@ export default function GlobalSearch() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-40 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-4 py-3 rounded-full shadow-xl border border-gray-200 dark:border-gray-700 flex items-center gap-3 hover:scale-105 transition-transform"
+        className="fixed bottom-20 left-6 z-40 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-4 py-3 rounded-full shadow-xl border border-gray-200 dark:border-gray-700 flex items-center gap-3 hover:scale-105 transition-transform"
         title="Search (Ctrl + K)"
       >
         <i className="fas fa-search"></i>
