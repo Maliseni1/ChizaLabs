@@ -7,10 +7,6 @@ const config: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // @ts-ignore: This option is valid but missing from the current NextConfig type definition
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   // Ensure we are using webpack as required by the PWA plugin
   webpack: (config) => {
     return config;
