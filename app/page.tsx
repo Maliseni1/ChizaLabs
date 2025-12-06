@@ -17,10 +17,16 @@ import HeroVideo from './components/HeroVideo';
 import CommunityPoll from './components/CommunityPoll';
 import WebinarSection from './components/WebinarSection';
 import SeasonSwitcher from './components/SeasonSwitcher';
+import { useSeasonalTheme } from './context/SeasonalThemeContext';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  
+  // Use the seasonal theme!
+  const { themeConfig } = useSeasonalTheme();
+  const primary = themeConfig.colors.primary; 
+  const bgLight = themeConfig.colors.bgLight; 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -51,13 +57,13 @@ export default function Home() {
   const getLinkClasses = (sectionId: string) => {
     const baseClasses = "transition-colors duration-300";
     const isActive = activeSection === sectionId;
-    return `${baseClasses} ${isActive ? 'text-blue-400 font-bold' : 'text-gray-300 hover:text-white'}`;
+    return `${baseClasses} ${isActive ? `text-${primary}-500 font-bold` : `text-gray-300 hover:text-${primary}-400`}`;
   };
 
   return (
     <PageTransition>
-      {/* Main Container: White in Light Mode, Deep Gray in Dark Mode */}
-      <main className="flex min-h-screen flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
+      {/* Main Container */}
+      <main className={`flex min-h-screen flex-col ${bgLight} dark:bg-gray-950 transition-colors duration-300`}>
         
         {/* Navigation Bar */}
         <header className="bg-gray-900 dark:bg-gray-950 text-white p-4 shadow-md sticky top-0 z-50 transition-colors duration-300">
@@ -111,7 +117,7 @@ export default function Home() {
         <HeroVideo />
 
         {/* Applications Section */}
-        <section id="applications" className="py-16 bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
+        <section id="applications" className={`py-16 ${bgLight} dark:bg-gray-950 transition-colors duration-300`}>
           <div className="container mx-auto px-4">
             <ScrollAnimation>
               <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Our Applications</h2>
@@ -162,10 +168,10 @@ export default function Home() {
                   <img src="/audire-preview.png" alt="Audire App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Audire</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                    Turn any file into audio instantly. An offline mobile tool for listening to documents on the go. v1.1.2
+                    MAJOR UPDATE v2.0.0: Camera Scanner, Interactive Bookmarks, Sleep Timer & More! Turn documents into audio instantly.
                   </p>
                   <div className="flex gap-3">
-                    <a href="https://github.com/Maliseni1/Audire/releases/download/v1.1.2/Audire-v1.1.2-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
+                    <a href="https://github.com/Maliseni1/Audire/releases/download/v2.0.0/Audire-v2.0.0-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
                     <a href="/apps/audire" className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
@@ -204,7 +210,7 @@ export default function Home() {
                   <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid, and find nearby health facilities. v1.0.0
+                    Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid. v1.0.0
                   </p>
                   <div className="flex gap-3">
                     <a 
@@ -281,42 +287,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* The Lab Link Card */}
-              <HoverCard>
-                <ScrollAnimation delay={0.9}>
-                  <div className="bg-gradient-to-br from-gray-900 to-black p-6 rounded-lg shadow-md flex flex-col border border-gray-800 h-full relative overflow-hidden group">
-                    
-                    {/* Background pattern */}
-                    <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
-                    
-                    <div className="relative z-10 flex flex-col h-full justify-center items-center text-center p-4">
-                      <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i className="fas fa-flask text-2xl text-green-400"></i>
-                      </div>
-                      
-                      <h3 className="text-xl font-bold mb-2 text-white">The Lab</h3>
-                      <p className="mb-6 text-gray-400 text-sm">
-                        Peek behind the curtain. Explore our experimental prototypes and R&D concepts.
-                      </p>
-                      
-                      <a 
-                        href="/lab" 
-                        className="inline-block border border-green-500/50 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-full transition-all duration-300 text-sm"
-                      >
-                        Enter The Lab →
-                      </a>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </HoverCard>
-
         {/* Interactive Demo Section */}
         <ScrollAnimation>
           <AppShowcase />
         </ScrollAnimation>
 
         {/* Latest Insights (Blog) Section */}
-        <section id="insights" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <section id="insights" className={`py-16 ${bgLight} dark:bg-gray-900 transition-colors duration-300`}>
           <div className="container mx-auto px-4">
             <ScrollAnimation>
               <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Latest Insights</h2>
@@ -324,12 +301,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {blogPosts.slice(0, 3).map((post, index) => (
                 <ScrollAnimation key={post.id} delay={index * 0.1}>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col border border-gray-100 dark:border-gray-700 h-full">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col border border-gray-100 dark:border-gray-700 h-full">
                     <div className="h-48 bg-gray-200 w-full relative">
                        <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-80" />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
-                      <span className="text-sm text-blue-500 font-semibold mb-2">{post.date}</span>
+                      <span className={`text-sm text-${primary}-500 font-semibold mb-2`}>{post.date}</span>
                       <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white leading-tight">
                         {post.title}
                       </h3>
@@ -340,7 +317,7 @@ export default function Home() {
                         {post.isAvailable ? (
                           <a 
                             href={`/blog/${post.slug}`} 
-                            className="text-blue-600 dark:text-blue-400 font-bold hover:text-blue-800 dark:hover:text-blue-300 transition-colors flex items-center"
+                            className={`text-${primary}-600 dark:text-${primary}-400 font-bold hover:text-${primary}-800 dark:hover:text-${primary}-300 transition-colors flex items-center`}
                           >
                             Read Article <span className="ml-2">→</span>
                           </a>
@@ -360,7 +337,7 @@ export default function Home() {
                <ScrollAnimation>
                  <a 
                    href="/blog" 
-                   className="inline-block border-2 border-blue-500 text-blue-500 dark:text-blue-400 font-bold py-2 px-6 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
+                   className={`inline-block border-2 border-${primary}-500 text-${primary}-500 dark:text-${primary}-400 font-bold py-2 px-6 rounded-full hover:bg-${primary}-500 hover:text-white transition-all duration-300`}
                  >
                    View All Posts
                  </a>
@@ -370,7 +347,7 @@ export default function Home() {
         </section>
 
         {/* Live Events / Webinars */}
-        <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <section className={`py-16 ${bgLight} dark:bg-gray-900 transition-colors duration-300`}>
           <div className="container mx-auto px-4">
             <ScrollAnimation>
               <h2 className="text-3xl text-center mb-12 text-gray-900 dark:text-white font-bold">
@@ -382,7 +359,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16 bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
+        <section id="about" className="py-16 bg-white dark:bg-gray-950 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <ScrollAnimation>
               <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">About Chiza Labs</h2>
@@ -407,7 +384,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <section id="contact" className={`py-16 ${bgLight} dark:bg-gray-900 transition-colors duration-300`}>
           <div className="container mx-auto px-4">
             <ScrollAnimation>
               <h2 className="text-3xl text-center mb-8 text-gray-900 dark:text-white font-bold">Get In Touch</h2>
@@ -429,7 +406,7 @@ export default function Home() {
                   name="name"
                   placeholder="Your Name"
                   required
-                  className="w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-${primary}-500`}
                 />
                 <input
                   type="email"
@@ -437,7 +414,7 @@ export default function Home() {
                   name="email"
                   placeholder="Your Email"
                   required
-                  className="w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-${primary}-500`}
                 />
                 <textarea
                   id="message"
@@ -445,11 +422,11 @@ export default function Home() {
                   placeholder="Your Message"
                   rows={5}
                   required
-                  className="w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-${primary}-500`}
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded transition-colors duration-300"
+                  className={`w-full bg-${primary}-500 hover:bg-${primary}-600 text-white font-bold py-3 px-4 rounded transition-colors duration-300`}
                 >
                   Send Message
                 </button>
@@ -503,7 +480,7 @@ export default function Home() {
                 href="https://github.com/Maliseni1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
+                className={`text-white hover:text-${primary}-400 transition-colors duration-300`}
                 aria-label="GitHub"
               >
                 <i className="fab fa-github fa-lg"></i>
@@ -512,7 +489,7 @@ export default function Home() {
                 href="https://x.com/Malisenichavula"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
+                className={`text-white hover:text-${primary}-400 transition-colors duration-300`}
                 aria-label="X"
               >
                 <i className="fab fa-x-twitter fa-lg"></i>
@@ -521,7 +498,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/maliseni-chavula-7100b323b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
+                className={`text-white hover:text-${primary}-400 transition-colors duration-300`}
                 aria-label="LinkedIn"
               >
                 <i className="fab fa-linkedin fa-lg"></i>

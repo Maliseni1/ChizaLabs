@@ -6,9 +6,9 @@ import { SeasonalThemeProvider } from "./context/SeasonalThemeContext";
 import { Analytics } from "@vercel/analytics/react";
 import NextTopLoader from 'nextjs-toploader';
 import Preloader from './components/Preloader';
-import SupportWidget from './components/SupportWidget';
-import GlobalSearch from './components/GlobalSearch';
-import AccessibilityMenu from './components/AccessibilityMenu';
+// import SupportWidget from './components/SupportWidget'; // Commented out for now
+// import GlobalSearch from './components/GlobalSearch';   // Commented out for now
+// import AccessibilityMenu from './components/AccessibilityMenu'; // Commented out for now
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -93,18 +93,18 @@ export default function RootLayout({
               shadow="0 0 10px #3B82F6,0 0 5px #3B82F6"
             />
 
-            {/* Global Command Palette */}
-            <GlobalSearch />
-
-            {/* Accessibility Menu (NEW) */}
-            <AccessibilityMenu />
+            {/* Global Command Palette - Commented out for now */}
+            {/* <GlobalSearch /> */}
 
             {children}
             
             <Analytics />
 
-            {/* Live Chat Widget */}
-            <SupportWidget />
+            {/* Live Chat Widget - Commented out for now */}
+            {/* <SupportWidget /> */}
+            
+            {/* Accessibility Menu - Commented out for now */}
+            {/* <AccessibilityMenu /> */}
           </SeasonalThemeProvider>
         </Providers>
       </body>
