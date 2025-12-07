@@ -1,38 +1,16 @@
 import type { NextConfig } from "next";
-import withPWA from "@ducanh2912/next-pwa";
 
-// Define a type that extends NextConfig to include the missing properties
-interface CustomNextConfig extends NextConfig {
-  eslint?: {
-    ignoreDuringBuilds?: boolean;
-  };
-}
-
-const config: CustomNextConfig = {
+const config: NextConfig = {
   reactStrictMode: true,
-  // Disable heavy checks during build to save memory
+  // Disable checks during build to save memory on Vercel free tier
   typescript: {
     ignoreBuildErrors: true,
   },
-  // No longer flagged as an error because we defined it in CustomNextConfig
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  // Ensure we are using webpack as required by the PWA plugin
-  webpack: (config) => {
-    return config;
-  }
+  //eslint: {
+    //ignoreDuringBuilds: true,
+  //} as any,
+  // Disable source maps for lighter build
+  productionBrowserSourceMaps: false,
 };
 
-const makePWA = withPWA({
-  dest: "public",
-  cacheOnFrontEndNav: true,
-  aggressiveFrontEndNavCaching: true,
-  reloadOnOnline: true,
-  disable: process.env.NODE_ENV === "development",
-  workboxOptions: {
-    disableDevLogs: true,
-  },
-});
-
-export default makePWA(config);
+export default config;
