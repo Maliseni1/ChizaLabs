@@ -57,6 +57,7 @@ export default function Home() {
   const getLinkClasses = (sectionId: string) => {
     const baseClasses = "transition-colors duration-300";
     const isActive = activeSection === sectionId;
+    // Dynamic Color!
     return `${baseClasses} ${isActive ? `text-${primary}-500 font-bold` : `text-gray-300 hover:text-${primary}-400`}`;
   };
 
@@ -129,7 +130,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.1}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/nyumba-preview.png" alt="Nyumba App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/nyumba-preview.png" alt="Nyumba App Screenshot" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Nyumba</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     The premier rental listings on the digital frontier. Find your dream home.
@@ -147,7 +148,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/photogen-preview.png" alt="PhotoGen App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/photogen-preview.png" alt="PhotoGen App Screenshot" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">PhotoGen</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     Unleash your creativity with AI. Turn your imagination into visual art in seconds.
@@ -165,7 +166,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.3}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/audire-preview.png" alt="Audire App Screenshot" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/audire-preview.png" alt="Audire App Screenshot" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Audire</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     MAJOR UPDATE v2.0.0: Camera Scanner, Interactive Bookmarks, Sleep Timer & More! Turn documents into audio instantly.
@@ -174,9 +175,13 @@ export default function Home() {
                     <a href="https://github.com/Maliseni1/Audire/releases/download/v2.0.0/Audire-v2.0.0-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
-                    <a href="/apps/audire" className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
+                    {/* Fixed: Use MotionLink for internal navigation */}
+                    <MotionLink
+                      href="/apps/audire"
+                      className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
+                    >
                       Versions
-                    </a>
+                    </MotionLink>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -186,7 +191,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.1}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/cutcam-preview.png" alt="CutCam Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/cutcam-preview.png" alt="CutCam Preview" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">CutCam</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     AI-driven assistant for DIY haircuts. Real-time head detection and step-by-step guard recommendations. v1.0.0
@@ -195,9 +200,13 @@ export default function Home() {
                     <a href="https://github.com/Maliseni1/CutCam/releases/download/v1.0.0/app-release.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
-                    <a href="/apps/cutcam" className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
+                    {/* Fixed: Use MotionLink for internal navigation */}
+                    <MotionLink
+                      href="/apps/cutcam"
+                      className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
+                    >
                       Versions
-                    </a>
+                    </MotionLink>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -207,7 +216,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/calon-preview.png" alt="Calon App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/calon-preview.png" alt="Calon App" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid. v1.0.0
@@ -219,12 +228,13 @@ export default function Home() {
                     >
                       Download
                     </a>
-                    <a 
+                    {/* Fixed: Use MotionLink for internal navigation */}
+                    <MotionLink 
                       href="/apps/calon" 
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                     >
                       Versions
-                    </a>
+                    </MotionLink>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -234,7 +244,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.3}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/nyumba-preview.png" alt="Nyumba Mobile App" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/nyumba-preview.png" alt="Nyumba Mobile App" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Nyumba Mobile</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     The Nyumba experience, optimized for your phone. Browse listings, chat with landlords, and get notifications on the go.
@@ -252,7 +262,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.4}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
-                  <img src="/omnis-preview.png" alt="Omnis Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/omnis-preview.png" alt="Omnis Preview" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Omnis</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     Your universal file companion. Read, edit, convert, and manage docs, PDFs, and more with AI assistance across Mobile, Windows, and Linux.
@@ -270,7 +280,7 @@ export default function Home() {
               <HoverCard>
               <ScrollAnimation delay={0.5}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 h-full">
-                  <img src="/Resumind-preview.png" alt="Resumind Preview" className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <Image src="/Resumind-preview.png" alt="Resumind Preview" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Resumind AI</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
                     We&apos;re always working on new and innovative solutions. Check back soon!
@@ -282,6 +292,36 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollAnimation>
+              </HoverCard>
+
+              {/* The Lab Link Card */}
+              <HoverCard>
+                <ScrollAnimation delay={0.9}>
+                  <div className="bg-gradient-to-br from-gray-900 to-black p-6 rounded-lg shadow-md flex flex-col border border-gray-800 h-full relative overflow-hidden group">
+                    
+                    {/* Background pattern */}
+                    <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+                    
+                    <div className="relative z-10 flex flex-col h-full justify-center items-center text-center p-4">
+                      <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i className="fas fa-flask text-2xl text-green-400"></i>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold mb-2 text-white">The Lab</h3>
+                      <p className="mb-6 text-gray-400 text-sm">
+                        Peek behind the curtain. Explore our experimental prototypes and R&D concepts.
+                      </p>
+                      
+                      {/* Fixed: Use MotionLink for internal navigation */}
+                      <MotionLink
+                        href="/lab" 
+                        className="inline-block border border-green-500/50 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-full transition-all duration-300 text-sm"
+                      >
+                        Enter The Lab →
+                      </MotionLink>
+                    </div>
+                  </div>
+                </ScrollAnimation>
               </HoverCard>
             </div>
           </div>
@@ -303,7 +343,7 @@ export default function Home() {
                 <ScrollAnimation key={post.id} delay={index * 0.1}>
                   <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col border border-gray-100 dark:border-gray-700 h-full">
                     <div className="h-48 bg-gray-200 w-full relative">
-                       <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-80" />
+                       <Image src={post.image} alt={post.title} width={500} height={300} className="w-full h-full object-cover opacity-80" />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <span className={`text-sm text-${primary}-500 font-semibold mb-2`}>{post.date}</span>
@@ -315,12 +355,13 @@ export default function Home() {
                       </p>
                       <div className="mt-auto">
                         {post.isAvailable ? (
-                          <a 
+                          // Fixed: Use MotionLink for internal navigation
+                          <MotionLink
                             href={`/blog/${post.slug}`} 
                             className={`text-${primary}-600 dark:text-${primary}-400 font-bold hover:text-${primary}-800 dark:hover:text-${primary}-300 transition-colors flex items-center`}
                           >
                             Read Article <span className="ml-2">→</span>
-                          </a>
+                          </MotionLink>
                         ) : (
                           <span className="text-gray-400 font-medium cursor-not-allowed text-sm">
                             Coming Soon
@@ -335,12 +376,13 @@ export default function Home() {
             
             <div className="text-center mt-10">
                <ScrollAnimation>
-                 <a 
+                 {/* Fixed: Use MotionLink for internal navigation */}
+                 <MotionLink
                    href="/blog" 
                    className={`inline-block border-2 border-${primary}-500 text-${primary}-500 dark:text-${primary}-400 font-bold py-2 px-6 rounded-full hover:bg-${primary}-500 hover:text-white transition-all duration-300`}
                  >
                    View All Posts
-                 </a>
+                 </MotionLink>
                </ScrollAnimation>
             </div>
           </div>
@@ -424,9 +466,10 @@ export default function Home() {
                   required
                   className={`w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-${primary}-500`}
                 ></textarea>
+                {/* Fixed Button Styling */}
                 <button
                   type="submit"
-                  className={`w-full bg-${primary}-500 hover:bg-${primary}-600 text-white font-bold py-3 px-4 rounded transition-colors duration-300`}
+                  className={`w-full bg-blue-600 hover:bg-blue-700 dark:bg-${primary}-600 dark:hover:bg-${primary}-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300 shadow-md transform active:scale-95`}
                 >
                   Send Message
                 </button>

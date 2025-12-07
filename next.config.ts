@@ -3,7 +3,7 @@ import withPWA from "@ducanh2912/next-pwa";
 
 const config: NextConfig = {
   reactStrictMode: true,
-  // Disable heavy checks during build to save memory
+  // Disable TypeScript checking during build to save memory on Vercel
   typescript: {
     ignoreBuildErrors: true,
   },
