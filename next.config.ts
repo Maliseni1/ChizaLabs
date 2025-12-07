@@ -1,11 +1,22 @@
 import type { NextConfig } from "next";
 import withPWA from "@ducanh2912/next-pwa";
 
-const config: NextConfig = {
+// Define a type that extends NextConfig to include the missing properties
+interface CustomNextConfig extends NextConfig {
+  eslint?: {
+    ignoreDuringBuilds?: boolean;
+  };
+}
+
+const config: CustomNextConfig = {
   reactStrictMode: true,
-  // Disable TypeScript checking during build to save memory on Vercel
+  // Disable heavy checks during build to save memory
   typescript: {
     ignoreBuildErrors: true,
+  },
+  // No longer flagged as an error because we defined it in CustomNextConfig
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   // Ensure we are using webpack as required by the PWA plugin
   webpack: (config) => {
