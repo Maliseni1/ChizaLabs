@@ -7,9 +7,50 @@ export const appDetails = {
     icon: "/audire-preview.png",
     releases: [
       {
+        version: "v2.1.0",
+        date: "December 15, 2025",
+        isLatest: true,
+        downloads: [
+          {
+            type: "Modern (Recommended)",
+            label: "Download for Modern Phones",
+            subLabel: "Samsung, Pixel, Infinix, Tecno (arm64)",
+            file: "Audire-v2.1.0-Modern.apk",
+            link: "https://github.com/Maliseni1/Audire/releases/download/v2.1.0/Audire-v2.1.0-Modern.apk",
+            highlight: true
+          },
+          {
+            type: "Legacy",
+            label: "Download for Older Devices",
+            subLabel: "Older Androids (armeabi-v7a)",
+            file: "Audire-v2.1.0-Legacy.apk",
+            link: "https://github.com/Maliseni1/Audire/releases/download/v2.1.0/Audire-v2.1.0-Legacy.apk",
+            highlight: false
+          },
+          {
+            type: "PC / Emulator",
+            label: "Download for PC",
+            subLabel: "Emulator / Chromebook (x86_64)",
+            file: "Audire-v2.1.0-PC.apk",
+            link: "https://github.com/Maliseni1/Audire/releases/download/v2.1.0/Audire-v2.1.0-PC.apk",
+            highlight: false
+          }
+        ],
+        notes: [
+          "🎉 THE LIFESTYLE UPDATE: Transformed from utility to daily companion",
+          "🌅 Word of the Day: Learn Bemba/Nyanja daily with translations",
+          "📊 Reading Statistics: Track books started, pages read, and words learned",
+          "🔖 Interactive Bookmarking: Tap any word to save quotes and resume later",
+          "📺 Immersive Reader Mode: Distraction-free reading with auto-fading controls",
+          "🛑 Professional Audio Controls: Rewind, Fast Forward, and Stop buttons added",
+          "📂 Draggable Library Sheet & Dedicated Exit App button",
+          "🔧 Robust Permission Handling & Android 36 Support"
+        ]
+      },
+      {
         version: "v2.0.0",
         date: "December 06, 2025",
-        isLatest: true,
+        isLatest: false,
         downloads: [
           {
             type: "Modern (Recommended)",
@@ -17,7 +58,7 @@ export const appDetails = {
             subLabel: "Samsung, Pixel, Infinix, Tecno (arm64)",
             file: "Audire-v2.0.0-Modern.apk",
             link: "https://github.com/Maliseni1/Audire/releases/download/v2.0.0/Audire-v2.0.0-Modern.apk",
-            highlight: true
+            highlight: false
           },
           {
             type: "Legacy",

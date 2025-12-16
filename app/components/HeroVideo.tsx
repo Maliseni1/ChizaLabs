@@ -38,7 +38,7 @@ export default function HeroVideo() {
         
         <ScrollAnimation delay={0.2}>
           <p className="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-200 font-light leading-relaxed">
-            Chiza Labs builds cutting-edge offline-first mobile applications and AI tools that solve real-world problems.
+            Chiza Labs builds cutting-edge offline-first mobile applications, websites and AI tools that solve real-world problems.
           </p>
         </ScrollAnimation>
 
