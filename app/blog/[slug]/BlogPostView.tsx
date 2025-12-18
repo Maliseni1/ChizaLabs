@@ -1,4 +1,3 @@
-// app/blog/[slug]/BlogPostView.tsx
 'use client';
 
 import { blogPosts } from '../../data/posts';
@@ -7,7 +6,6 @@ import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
 import Newsletter from '../../components/Newsletter';
 import ScrollAnimation from '../../components/ScrollAnimation';
-import ScrollProgress from '../../components/ScrollProgress';
 
 export default function BlogPostView({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug);
@@ -25,7 +23,6 @@ export default function BlogPostView({ slug }: { slug: string }) {
 
   return (
     <PageTransition>
-      <ScrollProgress />
       <main className="flex min-h-screen flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
         
         {/* Header */}
@@ -93,7 +90,7 @@ export default function BlogPostView({ slug }: { slug: string }) {
             <div className="flex space-x-4 mt-4 sm:mt-0">
               <a href="https://github.com/Maliseni1" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-github fa-lg"></i></a>
               <a href="https://x.com/Malisenichavula" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-x-twitter fa-lg"></i></a>
-              <a href="https://www.linkedin.com/in/maliseni-chavula-7100b323b" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-linkedin fa-lg"></i></a>
+              <a href="https://www.linkedin.com/in/maliseni-chavula-b162953a0" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-linkedin fa-lg"></i></a>
             </div>
           </div>
         </footer>

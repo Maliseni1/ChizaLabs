@@ -2,11 +2,25 @@ import { Metadata } from 'next';
 import { appDetails } from '../../data/releases';
 import AppReleaseView from './AppReleaseView';
 
-// 1. Generate SEO Metadata (Server Side)
+// Define the shape of app details to avoid 'any' issues
+interface AppDetail {
+  name: string;
+  description: string;
+  tagline: string;
+  icon: string;
+}
+
+// Define the shape of the full appDetails object
+interface AppDetailsType {
+  [key: string]: AppDetail | undefined;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  // @ts-ignore 
-  const app = appDetails[slug];
+  
+  // Cast appDetails to our interface to avoid implicit 'any' error
+  const details = appDetails as AppDetailsType;
+  const app = details[slug];
 
   if (!app) {
     return {
@@ -25,10 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-// 2. Main Page Component (Server Side)
 export default async function AppReleasePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  
-  // Render the Client Component with the slug
   return <AppReleaseView slug={slug} />;
 }

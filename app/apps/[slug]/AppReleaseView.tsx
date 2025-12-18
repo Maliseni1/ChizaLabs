@@ -5,11 +5,41 @@ import { useEffect } from 'react';
 import MotionLink from '../../components/MotionLink';
 import PageTransition from '../../components/PageTransition';
 import ThemeToggle from '../../components/ThemeToggle';
+import Image from 'next/image';
+
+// Define types for our app data structure to avoid 'any'
+interface DownloadOption {
+  type: string;
+  label: string;
+  subLabel?: string;
+  file: string;
+  link: string;
+  highlight: boolean;
+}
+
+interface Release {
+  version: string;
+  date: string;
+  isLatest: boolean;
+  downloads: DownloadOption[];
+  notes: string[];
+}
+
+interface AppData {
+  name: string;
+  tagline: string;
+  description: string;
+  icon: string;
+  category?: string;
+  releases: Release[];
+}
 
 // This component receives the slug as a prop from the Server Component
 export default function AppReleaseView({ slug }: { slug: string }) {
+  // Use type assertion or lookup safely
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const app = appDetails[slug];
+  const app = appDetails[slug] as AppData | undefined;
 
   // === USER TRACKING LOGIC ===
   useEffect(() => {
@@ -20,12 +50,14 @@ export default function AppReleaseView({ slug }: { slug: string }) {
       }
 
       // 2. Save to "Recent History" (for Dashboard)
-      const history = JSON.parse(localStorage.getItem('chiza-history') || '[]');
+      const historyString = localStorage.getItem('chiza-history');
+      const history = historyString ? JSON.parse(historyString) : [];
       
       // Create simple object to save
       const visit = { name: app.name, icon: app.icon, slug, date: new Date().toISOString() };
       
       // Remove duplicates of this app so we don't list it twice
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const filtered = history.filter((item: any) => item.slug !== slug);
       
       // Add to front, keep max 3 items
@@ -71,7 +103,15 @@ export default function AppReleaseView({ slug }: { slug: string }) {
           
           {/* App Hero */}
           <div className="flex flex-col md:flex-row gap-8 items-center mb-16">
-            <img src={app.icon} alt={app.name} className="w-full md:w-64 h-48 object-cover rounded-lg shadow-lg" />
+            {/* Use Next.js Image for optimization, replacing <img> */}
+            <div className="w-full md:w-64 h-48 relative rounded-lg shadow-lg overflow-hidden">
+               <Image 
+                 src={app.icon} 
+                 alt={app.name} 
+                 fill
+                 className="object-cover"
+               />
+            </div>
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">{app.name}</h1>
               <p className="text-xl text-blue-500 font-medium mb-4">{app.tagline}</p>
@@ -86,7 +126,6 @@ export default function AppReleaseView({ slug }: { slug: string }) {
 
           {app.releases.length > 0 ? (
             <div className="space-y-8">
-              {/* @ts-ignore */}
               {app.releases.map((release, index) => (
                 <div 
                   key={index} 
@@ -116,7 +155,6 @@ export default function AppReleaseView({ slug }: { slug: string }) {
                     <div className="flex-1 space-y-3">
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm uppercase tracking-wider">Select Your Device:</h4>
                         
-                        {/* @ts-ignore */}
                         {release.downloads.map((dl, i) => (
                           <a 
                             key={i}
@@ -146,7 +184,6 @@ export default function AppReleaseView({ slug }: { slug: string }) {
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm uppercase tracking-wider">Release Notes:</h4>
                       <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/20 p-4 rounded-lg text-sm md:text-base">
-                        {/* @ts-ignore */}
                         {release.notes.map((note, i) => (
                           <li key={i}>{note}</li>
                         ))}
@@ -192,7 +229,7 @@ export default function AppReleaseView({ slug }: { slug: string }) {
                 <i className="fab fa-x-twitter fa-lg"></i>
               </a>
               <a
-                href="https://www.linkedin.com/in/maliseni-chavula-7100b323b"
+                href="https://www.linkedin.com/in/maliseni-chavula-b162953a0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-colors duration-300"
@@ -203,7 +240,6 @@ export default function AppReleaseView({ slug }: { slug: string }) {
             </div>
           </div>
         </footer>
-
       </main>
     </PageTransition>
   );

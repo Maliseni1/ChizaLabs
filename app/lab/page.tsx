@@ -1,7 +1,7 @@
 'use client';
 
 import { labProjects } from '../data/lab-projects';
-import Image from 'next/image'; // Ensure Image is imported
+import Image from 'next/image'; 
 import MotionLink from '../components/MotionLink';
 import PageTransition from '../components/PageTransition';
 import ThemeToggle from '../components/ThemeToggle';
@@ -20,13 +20,10 @@ export default function LabPage() {
       {/* Main Container - Deep Dark Space Theme (Dark) | Vibrant Tech Lab (Light) */}
       <main className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-[#050505] dark:via-[#0a0a0a] dark:to-[#050505] text-slate-900 dark:text-gray-300 selection:bg-emerald-500/30 selection:text-emerald-700 dark:selection:text-emerald-200 overflow-x-hidden font-sans transition-colors duration-500">
         
-        {/* Background Effects - Vivid & Punchy in Light Mode */}
+        {/* Background Effects */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
-            {/* Emerald Blob */}
             <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-emerald-400/20 dark:bg-emerald-500/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen animate-pulse-slow"></div>
-            {/* Blue Blob */}
             <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen animate-pulse-slow delay-1000"></div>
-            {/* Grid Pattern */}
             <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.08] dark:opacity-[0.03] invert dark:invert-0"></div>
         </div>
 
@@ -105,9 +102,8 @@ export default function LabPage() {
                       
                       {/* NEW: Project Logo & Status Header */}
                       <div className="flex justify-between items-start mb-6">
-                        {/* Logo with fallback background */}
+                        {/* Logo */}
                         <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-1 shadow-sm">
-                           {/* Using Next.js Image component for optimization */}
                            <Image 
                               src={project.image} 
                               alt={project.title} 
@@ -175,7 +171,7 @@ export default function LabPage() {
           </div>
         </section>
 
-        {/* Footer - Minimal Tech Style */}
+        {/* Footer */}
         <footer className="bg-white dark:bg-black border-t border-slate-200 dark:border-white/5 py-12 transition-colors duration-300">
           <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-3 opacity-80 dark:opacity-50">
@@ -192,7 +188,7 @@ export default function LabPage() {
               <a href="https://x.com/malisenichavula" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-500 hover:text-black dark:text-gray-600 dark:hover:text-white cursor-pointer uppercase tracking-widest transition-colors">
                 X
               </a>
-              <a href="https://www.linkedin.com/in/maliseni-chavula-7100b323b" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-500 hover:text-black dark:text-gray-600 dark:hover:text-white cursor-pointer uppercase tracking-widest transition-colors">
+              <a href="www.linkedin.com/in/maliseni-chavula-b162953a0" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-500 hover:text-black dark:text-gray-600 dark:hover:text-white cursor-pointer uppercase tracking-widest transition-colors">
                 LinkedIn
               </a>
             </div>

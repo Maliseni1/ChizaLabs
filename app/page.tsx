@@ -169,10 +169,10 @@ export default function Home() {
                   <Image src="/audire-preview.png" alt="Audire App Screenshot" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Audire</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                    MAJOR UPDATE v2.1.0: The Lifestyle Update! Word of the Day, Stats, Bookmarks & Pro Controls. Your daily reading companion.
+                    MAJOR UPDATE v2.0.0: Camera Scanner, Interactive Bookmarks, Sleep Timer & More! Turn documents into audio instantly.
                   </p>
                   <div className="flex gap-3">
-                    <a href="https://github.com/Maliseni1/Audire/releases/download/v2.1.0/Audire-v2.1.0-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
+                    <a href="https://github.com/Maliseni1/Audire/releases/download/v2.0.0/Audire-v2.0.0-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
                     {/* Fixed: Use MotionLink for internal navigation */}
@@ -466,7 +466,6 @@ export default function Home() {
                   required
                   className={`w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-${primary}-500`}
                 ></textarea>
-                {/* Fixed Button Styling: Use explicit blue/brand color to ensure visibility */}
                 <button
                   type="submit"
                   className={`w-full bg-blue-600 hover:bg-blue-700 dark:bg-${primary}-600 dark:hover:bg-${primary}-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300 shadow-md transform active:scale-95`}
@@ -538,7 +537,7 @@ export default function Home() {
                 <i className="fab fa-x-twitter fa-lg"></i>
               </a>
               <a
-                href="www.linkedin.com/in/maliseni-chavula-b162953a0"
+                href="https://www.linkedin.com/in/maliseni-chavula-b162953a0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`text-white hover:text-${primary}-400 transition-colors duration-300`}

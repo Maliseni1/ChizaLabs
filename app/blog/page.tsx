@@ -1,4 +1,3 @@
-// app/blog/page.tsx
 'use client';
 
 import { blogPosts } from '../data/posts';
@@ -7,11 +6,12 @@ import PageTransition from '../components/PageTransition';
 import ThemeToggle from '../components/ThemeToggle';
 import ScrollAnimation from '../components/ScrollAnimation';
 import Newsletter from '../components/Newsletter';
+import Image from 'next/image';
 
 export default function BlogPage() {
   return (
     <PageTransition>
-      {/* Main Container: White in Light Mode, Deep Gray in Dark Mode */}
+      {/* Main Container */}
       <main className="flex min-h-screen flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
         
         {/* Header */}
@@ -39,7 +39,7 @@ export default function BlogPage() {
                   <div className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col border border-gray-100 dark:border-gray-700 h-full">
                     {/* Image */}
                     <div className="h-48 bg-gray-200 w-full relative">
-                       <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-90" />
+                       <Image src={post.image} alt={post.title} width={500} height={300} className="w-full h-full object-cover opacity-90" />
                     </div>
                     
                     {/* Content */}
@@ -84,33 +84,9 @@ export default function BlogPage() {
           <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
             <p>&copy; 2025 Chiza Labs. All rights reserved.</p>
             <div className="flex space-x-4 mt-4 sm:mt-0">
-              <a
-                href="https://github.com/Maliseni1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label="GitHub"
-              >
-                <i className="fab fa-github fa-lg"></i>
-              </a>
-              <a
-                href="https://x.com/Malisenichavula"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label="X"
-              >
-                <i className="fab fa-x-twitter fa-lg"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/maliseni-chavula-7100b323b"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label="LinkedIn"
-              >
-                <i className="fab fa-linkedin fa-lg"></i>
-              </a>
+              <a href="https://github.com/Maliseni1" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-github fa-lg"></i></a>
+              <a href="https://x.com/Malisenichavula" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-x-twitter fa-lg"></i></a>
+              <a href="https://www.linkedin.com/in/maliseni-chavula-b162953a0" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><i className="fab fa-linkedin fa-lg"></i></a>
             </div>
           </div>
         </footer>
