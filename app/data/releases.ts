@@ -43,6 +43,7 @@ export const appDetails = {
           "🔖 Interactive Bookmarking: Tap any word to save quotes and resume later",
           "📺 Immersive Reader Mode: Distraction-free reading with auto-fading controls",
           "🛑 Professional Audio Controls: Rewind, Fast Forward, and Stop buttons added",
+          "🧠 Smart Voice Labels: 'Woman's Voice' / 'Man's Voice' labels",
           "📂 Draggable Library Sheet & Dedicated Exit App button",
           "🔧 Robust Permission Handling & Android 36 Support"
         ]
@@ -185,9 +186,32 @@ export const appDetails = {
     icon: "/calon-preview.png",
     releases: [
       {
+        version: "v1.2.1",
+        date: "December 18, 2025",
+        isLatest: true,
+        downloads: [
+          {
+            type: "Universal",
+            label: "Download APK",
+            subLabel: "Latest Update v1.2.1",
+            file: "app-release.apk",
+            // Assuming the repo is 'calon-releases' based on v1.0.0
+            link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.2.1/app-release.apk",
+            highlight: true
+          }
+        ],
+        notes: [
+          "🏥 Calon v1.2.1 - Health Companion Update",
+          "🦟 New: Malaria Symptom Checker",
+          "🗺️ Fixed: Hospital Map Location & Routing",
+          "🩸 Improved: Profile Edit Mode & Blood Type Selector",
+          "✨ UI: Animated Dashboard & Dark Mode Polish"
+        ]
+      },
+      {
         version: "v1.0.0",
         date: "December 03, 2025",
-        isLatest: true,
+        isLatest: false,
         downloads: [
           {
             type: "Universal",
@@ -195,7 +219,7 @@ export const appDetails = {
             subLabel: "Initial Release",
             file: "app-release.apk",
             link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.0.0/app-release.apk",
-            highlight: true
+            highlight: false
           }
         ],
         notes: [
