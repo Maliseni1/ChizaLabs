@@ -231,5 +231,36 @@ export const appDetails = {
         ]
       }
     ]
+  },
+  cyberhygiene: {
+    name: "Cyber Hygiene Auditor",
+    category: "Security",
+    tagline: "Your personal digital security audit.",
+    description: "A comprehensive personal security tool that audits your device settings, password habits, and installed apps. Get a real-time 'Hygiene Score' and actionable advice to secure your digital life.",
+    icon: "/cyber-hygiene-preview.png", // Make sure to add this image!
+    releases: [
+      {
+        version: "v1.0.0",
+        date: "December 19, 2025",
+        isLatest: true,
+        downloads: [
+          {
+            type: "Universal",
+            label: "Download APK",
+            subLabel: "Stable Release v1.0.0",
+            file: "Cyber.Hygiene.apk",
+            link: "https://github.com/Maliseni1/Cyber-Hygiene/releases/download/v1.0.0/Cyber.Hygiene.apk",
+            highlight: true
+          }
+        ],
+        notes: [
+          "🛡️ Hygiene Score Algorithm: Real-time 0-100 security score",
+          "🎨 Dynamic UI: Full Dark/Light mode support & new Dashboard Grid",
+          "🔐 Privacy: 'Deep Wipe' feature for factory-reset data clearing",
+          "🛠️ Security Suite: Spyware Hunter & Permission Audit",
+          "⚡ Zero-Knowledge: All scanning happens locally on-device"
+        ]
+      }
+    ]
   }
 };
