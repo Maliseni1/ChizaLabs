@@ -175,6 +175,7 @@ export default function Home() {
                     <a href="https://github.com/Maliseni1/Audire/releases/download/v2.1.0/Audire-v2.1.0-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
+                    {/* Fixed: Use MotionLink for internal navigation */}
                     <MotionLink
                       href="/apps/audire"
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
@@ -199,6 +200,7 @@ export default function Home() {
                     <a href="https://github.com/Maliseni1/CutCam/releases/download/v1.0.0/app-release.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
+                    {/* Fixed: Use MotionLink for internal navigation */}
                     <MotionLink
                       href="/apps/cutcam"
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
@@ -226,6 +228,7 @@ export default function Home() {
                     >
                       Download
                     </a>
+                    {/* Fixed: Use MotionLink for internal navigation */}
                     <MotionLink 
                       href="/apps/calon" 
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
@@ -264,9 +267,28 @@ export default function Home() {
               </ScrollAnimation>
               </HoverCard>
 
-              {/* Nyumba Mobile */}
+              {/* Chiza AI (NEW) */}
               <HoverCard>
               <ScrollAnimation delay={0.4}>
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 h-full">
+                  {/* Using chiza logo as placeholder for Chiza AI */}
+                  <Image src="/chiza-ai-preview.png" alt="Chiza AI" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Chiza AI</h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
+                    Your completely offline AI assistant. Powered by Qwen LLM for blazing fast, private intelligence on your device.
+                  </p>
+                  <div>
+                    <span className="inline-block bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded">
+                      Coming Soon
+                    </span>
+                  </div>
+                </div>
+              </ScrollAnimation>
+              </HoverCard>
+
+              {/* Nyumba Mobile */}
+              <HoverCard>
+              <ScrollAnimation delay={0.5}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <Image src="/nyumba-preview.png" alt="Nyumba Mobile App" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Nyumba Mobile</h3>
@@ -284,7 +306,7 @@ export default function Home() {
 
               {/* Omnis */}
               <HoverCard>
-              <ScrollAnimation delay={0.5}>
+              <ScrollAnimation delay={0.6}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <Image src="/omnis-preview.png" alt="Omnis Preview" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Omnis</h3>
@@ -302,7 +324,7 @@ export default function Home() {
 
               {/* Resumind AI Card */}
               <HoverCard>
-              <ScrollAnimation delay={0.6}>
+              <ScrollAnimation delay={0.7}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 h-full">
                   <Image src="/Resumind-preview.png" alt="Resumind Preview" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Resumind AI</h3>
@@ -336,6 +358,7 @@ export default function Home() {
                         Peek behind the curtain. Explore our experimental prototypes and R&D concepts.
                       </p>
                       
+                      {/* Fixed: Use MotionLink for internal navigation */}
                       <MotionLink
                         href="/lab" 
                         className="inline-block border border-green-500/50 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-full transition-all duration-300 text-sm"
@@ -378,6 +401,7 @@ export default function Home() {
                       </p>
                       <div className="mt-auto">
                         {post.isAvailable ? (
+                          // Fixed: Use MotionLink for internal navigation
                           <MotionLink
                             href={`/blog/${post.slug}`} 
                             className={`text-${primary}-600 dark:text-${primary}-400 font-bold hover:text-${primary}-800 dark:hover:text-${primary}-300 transition-colors flex items-center`}
@@ -398,6 +422,7 @@ export default function Home() {
             
             <div className="text-center mt-10">
                <ScrollAnimation>
+                 {/* Fixed: Use MotionLink for internal navigation */}
                  <MotionLink
                    href="/blog" 
                    className={`inline-block border-2 border-${primary}-500 text-${primary}-500 dark:text-${primary}-400 font-bold py-2 px-6 rounded-full hover:bg-${primary}-500 hover:text-white transition-all duration-300`}
@@ -487,6 +512,7 @@ export default function Home() {
                   required
                   className={`w-full p-3 mb-4 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-${primary}-500`}
                 ></textarea>
+                {/* Fixed Button Styling: Use explicit blue/brand color to ensure visibility */}
                 <button
                   type="submit"
                   className={`w-full bg-blue-600 hover:bg-blue-700 dark:bg-${primary}-600 dark:hover:bg-${primary}-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300 shadow-md transform active:scale-95`}
@@ -558,7 +584,7 @@ export default function Home() {
                 <i className="fab fa-x-twitter fa-lg"></i>
               </a>
               <a
-                href="https://www.linkedin.com/in/maliseni-chavula-b162953a0"
+                href="www.linkedin.com/in/maliseni-chavula-b162953a0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`text-white hover:text-${primary}-400 transition-colors duration-300`}
