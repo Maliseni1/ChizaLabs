@@ -186,18 +186,40 @@ export const appDetails = {
     icon: "/calon-preview.png",
     releases: [
       {
-        version: "v1.2.1",
-        date: "December 18, 2025",
+        version: "v1.4.0",
+        date: "January 01, 2026",
         isLatest: true,
         downloads: [
           {
             type: "Universal",
             label: "Download APK",
-            subLabel: "Latest Update v1.2.1",
+            subLabel: "Latest Update v1.4.0",
             file: "app-release.apk",
-            // Assuming the repo is 'calon-releases' based on v1.0.0
-            link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.2.1/app-release.apk",
+            // Assuming the repo follows the pattern
+            link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.4.0/app-release.apk",
             highlight: true
+          }
+        ],
+        notes: [
+          "❤️ THE HEART UPDATE v1.4.0: Our biggest update yet!",
+          "👩‍⚕️ Smart Health Tools: Cycle Tracker (Menstrual calendar), Drug Interaction Checker, Malaria Triage",
+          "🏃‍♂️ Fitness & Activity: Built-in Step Counter with daily goals (toggleable)",
+          "🎨 Living UI: Holiday Greetings, animated heartbeat, and clearer First Aid guides",
+          "🔧 Enhancements: Profile Edit Mode, PDF Health Reports, Secure PIN Lock, Map Routing fixes"
+        ]
+      },
+      {
+        version: "v1.2.1",
+        date: "December 18, 2025",
+        isLatest: false,
+        downloads: [
+          {
+            type: "Universal",
+            label: "Download APK",
+            subLabel: "Stable Release v1.2.1",
+            file: "app-release.apk",
+            link: "https://github.com/Maliseni1/calon-releases/releases/download/v1.2.1/app-release.apk",
+            highlight: false
           }
         ],
         notes: [
@@ -237,7 +259,7 @@ export const appDetails = {
     category: "Security",
     tagline: "Your personal digital security audit.",
     description: "A comprehensive personal security tool that audits your device settings, password habits, and installed apps. Get a real-time 'Hygiene Score' and actionable advice to secure your digital life.",
-    icon: "/cyber-hygiene-preview.png", // Make sure to add this image!
+    icon: "/cyber-hygiene-preview.png", 
     releases: [
       {
         version: "v1.0.0",

@@ -175,7 +175,6 @@ export default function Home() {
                     <a href="https://github.com/Maliseni1/Audire/releases/download/v2.1.0/Audire-v2.1.0-Modern.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
-                    {/* Fixed: Use MotionLink for internal navigation */}
                     <MotionLink
                       href="/apps/audire"
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
@@ -200,7 +199,6 @@ export default function Home() {
                     <a href="https://github.com/Maliseni1/CutCam/releases/download/v1.0.0/app-release.apk" className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm">
                       Download
                     </a>
-                    {/* Fixed: Use MotionLink for internal navigation */}
                     <MotionLink
                       href="/apps/cutcam"
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
@@ -212,23 +210,22 @@ export default function Home() {
               </ScrollAnimation>
               </HoverCard>
 
-              {/* Calon */}
+              {/* Calon - Updated to v1.4.0 */}
               <HoverCard>
               <ScrollAnimation delay={0.2}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 h-full">
                   <Image src="/calon-preview.png" alt="Calon App" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Calon</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
-                    <strong>v1.2.1 Update:</strong> Malaria Checker & Map Fixes. Your secure wellness hub. Log symptoms, get medication reminders, access offline first aid.
+                    <strong>v1.4.0 Heart Update:</strong> Fitness Tracking, Cycle Tracker, Drug Interaction Checker, and a lively new UI. Your complete health companion.
                   </p>
                   <div className="flex gap-3">
                     <a 
-                      href="https://github.com/Maliseni1/calon-releases/releases/download/v1.2.1/app-release.apk" 
+                      href="https://github.com/Maliseni1/calon-releases/releases/download/v1.4.0/app-release.apk" 
                       className="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
                     >
                       Download
                     </a>
-                    {/* Fixed: Use MotionLink for internal navigation */}
                     <MotionLink 
                       href="/apps/calon" 
                       className="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-2 px-2 rounded transition-colors duration-300 text-sm"
@@ -267,11 +264,10 @@ export default function Home() {
               </ScrollAnimation>
               </HoverCard>
 
-              {/* Chiza AI (NEW) */}
+              {/* Chiza AI */}
               <HoverCard>
               <ScrollAnimation delay={0.4}>
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col border border-gray-100 dark:border-gray-700 h-full">
-                  {/* Using chiza logo as placeholder for Chiza AI */}
                   <Image src="/chiza-ai-preview.png" alt="Chiza AI" width={500} height={300} className="w-full h-48 object-cover mb-4 rounded bg-gray-200" />
                   <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Chiza AI</h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow">
@@ -358,7 +354,6 @@ export default function Home() {
                         Peek behind the curtain. Explore our experimental prototypes and R&D concepts.
                       </p>
                       
-                      {/* Fixed: Use MotionLink for internal navigation */}
                       <MotionLink
                         href="/lab" 
                         className="inline-block border border-green-500/50 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-full transition-all duration-300 text-sm"
@@ -401,7 +396,6 @@ export default function Home() {
                       </p>
                       <div className="mt-auto">
                         {post.isAvailable ? (
-                          // Fixed: Use MotionLink for internal navigation
                           <MotionLink
                             href={`/blog/${post.slug}`} 
                             className={`text-${primary}-600 dark:text-${primary}-400 font-bold hover:text-${primary}-800 dark:hover:text-${primary}-300 transition-colors flex items-center`}
@@ -422,7 +416,6 @@ export default function Home() {
             
             <div className="text-center mt-10">
                <ScrollAnimation>
-                 {/* Fixed: Use MotionLink for internal navigation */}
                  <MotionLink
                    href="/blog" 
                    className={`inline-block border-2 border-${primary}-500 text-${primary}-500 dark:text-${primary}-400 font-bold py-2 px-6 rounded-full hover:bg-${primary}-500 hover:text-white transition-all duration-300`}
